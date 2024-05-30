@@ -11,29 +11,32 @@
                 <li class="menu-title">Main</li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('dashboard') }}" class="waves-effect">
                         <i class="mdi mdi-home"></i>
                         <span>الرئيسية</span>
                     </a>
                 </li>
 
-
                 <li>
-                    <a href="index.html" class="waves-effect">
-                        <i class="mdi mdi-layers"></i>
-                        <span>الاقسام</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="index.html" class="waves-effect">
-                        <i class="mdi mdi-blogger"></i>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ti-email"></i>
                         <span>المدونة</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li> <a href="{{ route('categories.index') }}" class="waves-effect">
+                                <i class="mdi mdi-layers"></i>
+                                <span>الاقسام</span>
+                            </a></li>
+                        <li> <a href="{{ route('posts.index') }}" class="waves-effect">
+                                <i class="mdi mdi-blogger"></i>
+                                <span>المقالات</span>
+                            </a></li>
+                    </ul>
                 </li>
 
+
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('news.index') }}" class="waves-effect">
                         <i class="mdi mdi-newspaper"></i>
                         <span>الاخبار</span>
                     </a>
@@ -41,7 +44,7 @@
 
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('services.index') }}" class="waves-effect">
                         <i class="mdi mdi-medal"></i>
                         <span>الخدمات</span>
                     </a>

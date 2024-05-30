@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Category;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -22,7 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category();
+        return view('dashboard.categories.create', compact('category'));
     }
 
     /**
@@ -30,7 +32,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required|unique:categories',
+
+        ];
+        $message = [
+            'name.required' => 'الحقل مطلوب',
+            'name.unique' => 'هذا الاسم موجود بالفعل'
+        ];
+        $this->validate($request, $rules, $message);
+
+        Category::create($request->all());
+        return Redirect::route('categories.index')->with('success', 'تم انشاء عنصر جديد بنجاح');
     }
 
     /**
@@ -38,7 +51,6 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -46,7 +58,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('dashboard.categories.edit', compact('category'));
     }
 
     /**
@@ -54,7 +67,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $rules = [
+            'name' => 'required|unique:categories',
+        ];
+        $message = [
+            'name.required' => 'الحقل مطلوب',
+            'name.unique' => 'هذا الاسم موجود بالفعل'
+        ];
+        $this->validate($request, $rules, $message);
+
+        $category->update($request->all());
+        return Redirect::route('categories.index')->with('success', 'تم التعديل بنجاح');
     }
 
     /**
@@ -62,6 +87,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return Redirect::route('categories.index')->with('success', 'تم الحذف بنجاح');
     }
 }

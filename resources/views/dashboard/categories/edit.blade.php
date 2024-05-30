@@ -1,16 +1,18 @@
-@extends('dashboard.layouts.partials.master')
+@extends('dashboard.layouts.master')
 @section('css')
-    <!--  Owl-carousel css-->
-    <link href="{{ URL::asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
-    <!-- Maps css -->
-    <link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap.min.css') }}" rel="stylesheet">
+
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
-    <div class="breadcrumb-header justify-content-between">
-        <div class="left-content">
-            <div>
-                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">Edit Category</h2>
+    <div class="page-title-box">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h6 class="page-title">الاقسام</h6>
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">الاقسام</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('categories.edit',$category) }}">تعديل قسم</a></li>
+                </ol>
             </div>
         </div>
     </div>
@@ -18,32 +20,12 @@
 @endsection
 @section('content')
     <div class="my-5">
-        @include('dashboard.layouts.partials.error_validation')
-        <form method="POST" action="{{ route('category.update',$category) }}" enctype="multipart/form-data">
+        {{-- @include('dashboard.layouts.partials.error_validation') --}}
+        <form method="POST" action="{{ route('categories.update',$category) }}" enctype="multipart/form-data">
             @method('PUT')
             @include('dashboard.categories.form')
         </form>
     </div>
 @endsection
 @section('js')
-    <!--Internal  Chart.bundle js -->
-    <script src="{{ URL::asset('assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
-    <!-- Moment js -->
-    <script src="{{ URL::asset('assets/plugins/raphael/raphael.min.js') }}"></script>
-    <!--Internal  Flot js-->
-    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.categories.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/dashboard.sampledata.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/chart.flot.sampledata.js') }}"></script>
-    <!--Internal Apexchart js-->
-    <script src="{{ URL::asset('assets/js/apexcharts.js') }}"></script>
-    <!-- Internal Map -->
-    <script src="{{ URL::asset('assets/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/modal-popup.js') }}"></script>
-    <!--Internal  index js -->
-    <script src="{{ URL::asset('assets/js/index.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/jquery.vmap.sampledata.js') }}"></script>
 @endsection

@@ -20,16 +20,22 @@
         <!-- /Loader -->
         @include('dashboard.layouts.partials.main-sidebar')
         <!-- main-content -->
-        <div class="main-content app-content">
-            @include('dashboard.layouts.partials.main-header')
-            <!-- container -->
-            <div class="container-fluid">
-                @yield('page-header')
-                @yield('content')
-                {{-- @include('dashboard.layouts.partials.sidebar-right')
-				@include('dashboard.layouts.partials.models') --}}
-                @include('dashboard.layouts.partials.footer')
-                @include('dashboard.layouts.partials.footer-scripts')
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    @include('dashboard.layouts.partials.main-header')
+                    <!-- container -->
+                    <div class="container-fluid">
+                        @yield('page-header')
+                        @yield('content')
+                        {{-- @include('dashboard.layouts.partials.sidebar-right')
+                            @include('dashboard.layouts.partials.models') --}}
+                        @include('dashboard.layouts.partials.footer')
+                        @include('dashboard.layouts.partials.footer-scripts')
+                    </div>
+                </div>
             </div>
 
         </div>

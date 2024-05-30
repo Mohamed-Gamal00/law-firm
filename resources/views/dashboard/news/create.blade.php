@@ -9,8 +9,8 @@
                 <h6 class="page-title">الاقسام</h6>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">الاقسام</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('categories.create') }}">انشاء قسم</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('news.index') }}">الاخبار</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('news.create') }}">انشاء خبر</a></li>
                 </ol>
             </div>
         </div>
@@ -20,8 +20,8 @@
 @section('content')
     <div class="my-5">
         {{-- @include('dashboard.layouts.partials.error_validation') --}}
-        <form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data">
-            @include('dashboard.categories.form')
+        <form method="POST" action="{{ route('news.store') }}" enctype="multipart/form-data">
+            @include('dashboard.news.form')
         </form>
     </div>
 @endsection
