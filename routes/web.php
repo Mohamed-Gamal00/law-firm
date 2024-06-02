@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\PhotoController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\TeamController;
 use App\Http\Controllers\Dashboard\VideoController;
 use App\Http\Controllers\ProfileController;
@@ -25,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
+Route::get('/admin', function () {
     return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -42,6 +43,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('teams', TeamController::class);
         Route::resource('photos', PhotoController::class);
         Route::resource('videos', VideoController::class);
+        // Route::resource('settings', SettingController::class);
+        Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::get('settings/edit', [SettingController::class, 'edit'])->name('settings.edit');
+        Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
     });
 });
 
