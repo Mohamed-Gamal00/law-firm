@@ -9,6 +9,6 @@ class Photo extends Model
 
     protected $table = 'photos';
     public $timestamps = true;
-    protected $fillable = array('image');
+    protected $fillable = array('title','image');
 
 }

@@ -51,21 +51,21 @@
                 </li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('teams.index') }}" class="waves-effect">
                         <i class="mdi mdi-account-group"></i>
                         <span>الفريق</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('photos.index') }}" class="waves-effect">
                         <i class="mdi mdi-camera-image"></i>
                         <span>الصور</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{ route('videos.index') }}" class="waves-effect">
                         <i class="mdi mdi-file-video"></i>
                         <span>الفيديوهات</span>
                     </a>

@@ -11,6 +11,7 @@ class CreateTeamsTable extends Migration {
 		Schema::create('teams', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
+
 			$table->string('name');
 			$table->string('job_title')->nullable();
 			$table->string('experience')->nullable();
@@ -21,7 +22,9 @@ class CreateTeamsTable extends Migration {
 			$table->string('instagram')->nullable();
 			$table->string('linked_in')->nullable();
 			$table->text('personal_info')->nullable();
-			$table->json('certifications')->nullable();
+			$table->string('certifications')->nullable();
+            $table->string('image')->nullable();
+
 		});
 	}
 

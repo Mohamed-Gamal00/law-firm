@@ -1,0 +1,147 @@
+@media only screen and (max-width:1200px) {
+
+    .main-header .menu
+    {
+        display: none;
+    }
+    .hidden-xx
+    {
+        display: block;
+    }
+    .main-header .logo img
+    {
+        width: 250px!important;
+    }
+    .quick ul li , .quick-about ul li
+    {
+        display: inline-block;
+        width: 120px;
+    }
+
+
+}
+
+@media only screen and (max-width:990px) {
+    .searching-bar form input
+    {
+        font-size: 18px;
+    }
+    .searching-bar
+    {
+        padding: 20px 15px;
+    }
+    .searching-bar form button {
+        position: absolute;
+        left: 30px;
+        top: 54px;
+    }
+    .intro .content h3 , .intro .content p
+    {
+        width: 100%;
+    }
+    .quick h4 , .quick-about h4
+    {
+        text-align: center;
+        font-size: 14px;
+    }
+    .quick ul , .quick-about ul
+    {
+        text-align: center;
+    }
+    .about-section .content ul li
+    {
+        width: 100%;
+    }
+    .about-section .content ul li i
+    {
+        margin-top: 0px;
+    }
+    .about-section .pic img
+    {
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 90%;
+        display: block;
+    }
+    .teamWork-section .one .overlay
+    {
+        padding-top: 35%;
+    }
+    .intro .content .links a
+    {
+        width: 140px;
+    }
+    .media-section .content ul li
+    {
+        margin-bottom: 10px;
+        width: 160px;
+    }
+    .media-section iframe
+    {
+        margin-top: 30px;
+    }
+    .footer .logo img
+    {
+        margin: 0px 0px;
+    }
+    .footer
+    {
+        text-align: center;
+    }
+    .footer ul , .footer .footer-content h3
+    {
+        text-align: right;
+    }
+    .about-featured .about-content ul li
+    {
+        width: 49%;
+    }
+    .more-featured .one
+    {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .service-details .details-content ul li
+    {
+        width: 49%;
+    }
+    .teamWork-details-section .content ul li {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .teamWork-details-section .content ul li i
+    {
+        margin-top: 0px;
+    }
+    .blog-details .latest-news img {
+        margin-top: 12px;
+        width: 100px;
+        height: 100px;
+        object-fit: contain!important;
+    }
+    .blog-details .latest-news .con
+    {
+        text-align: center;
+    }
+    .blog-details .latest-news .con p , .blog-details .latest-news .con a
+    {
+        text-align: center;
+    }
+    .blog-details .content .mini
+    {
+        height: 150px;
+    }
+    .blog-details .next-blog h5 , .blog-details .prev-blog h5
+    {
+        width: 100%;
+    }
+    .gallery-item {
+        flex-basis: 160px;
+    }
+    .contact-now form textarea , .contact-info .info i
+    {
+        margin-top: 20px;
+    }
+
+
+}

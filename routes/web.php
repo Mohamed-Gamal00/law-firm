@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\NewsController;
+use App\Http\Controllers\Dashboard\PhotoController;
 use App\Http\Controllers\Dashboard\PostController;
 use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\Dashboard\TeamController;
+use App\Http\Controllers\Dashboard\VideoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,23 +21,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::prefix('admin')->group(function () {
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('categories', CategoryController::class);
-    Route::resource('posts', PostController::class);
-    Route::resource('news', NewsController::class);
-    Route::resource('services', ServiceController::class);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('posts', PostController::class);
+        Route::resource('news', NewsController::class);
+        Route::resource('services', ServiceController::class);
+        Route::resource('teams', TeamController::class);
+        Route::resource('photos', PhotoController::class);
+        Route::resource('videos', VideoController::class);
+    });
 });
 
 require __DIR__.'/auth.php';
