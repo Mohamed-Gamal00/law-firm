@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\customizesite\AboutContentController;
+use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
 use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\PhotoController;
 use App\Http\Controllers\Dashboard\PostController;
@@ -47,6 +49,16 @@ Route::middleware('auth')->group(function () {
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::get('settings/edit', [SettingController::class, 'edit'])->name('settings.edit');
         Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
+        /* تخصيص الموقع */
+        /* main page */
+        Route::resource('main-page', MainpageContentController::class);
+
+        /* about-us */
+        Route::get('about-us', [AboutContentController::class, 'index'])->name('about-us.index');
+        Route::put('about-us', [AboutContentController::class, 'update'])->name('about-us.update');
+
+
     });
 });
 

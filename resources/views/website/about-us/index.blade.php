@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="one">
-                        <img src="{{asset('website/mages/about-4.png')}}i" alt="">
+                        <img src="{{asset('website/images/about-4.png')}}" alt="">
                         <h4>هدف المكتب</h4>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
                             حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس

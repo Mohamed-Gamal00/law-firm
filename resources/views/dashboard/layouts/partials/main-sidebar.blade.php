@@ -84,13 +84,18 @@
                         <span>تخصيص الموقع</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li> <a href="{{ route('categories.index') }}" class="waves-effect">
+                        <li> <a href="{{ route('main-page.index') }}" class="waves-effect">
                                 <i class="mdi mdi-application"></i>
                                 <span>الصفحة الرئيسية</span>
                             </a></li>
-                        <li> <a href="{{ route('posts.index') }}" class="waves-effect">
+                        <li> <a href="{{ route('about-us.index') }}" class="waves-effect">
                                 <i class="mdi mdi-information"></i>
                                 <span>من نحن</span>
+                            </a>
+                        </li>
+                        <li> <a href="{{ route('posts.index') }}" class="waves-effect">
+                                <i class="mdi mdi-information"></i>
+                                <span>المركز الاعلامي</span>
                             </a>
                         </li>
                     </ul>
