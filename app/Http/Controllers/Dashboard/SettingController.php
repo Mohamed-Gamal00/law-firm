@@ -16,7 +16,6 @@ class SettingController extends Controller
     {
         // $settings = Setting::first();
         $settings = Setting::first() ?? new Setting();
-
         return view('dashboard.settings.index', compact('settings'));
     }
 
@@ -82,9 +81,6 @@ class SettingController extends Controller
             'footer_content_right' => 'nullable|string',
             'footer_content_left' => 'nullable|string',
             'booking_title' => 'nullable|string|max:255',
-            'media_center_title' => 'nullable|string|max:255',
-            'media_center_content' => 'nullable|string',
-            'media_center_video_link' => 'nullable|url|max:255',
         ]);
 
         $data = $request->all();

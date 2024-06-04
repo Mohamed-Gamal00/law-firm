@@ -93,20 +93,35 @@
                                 <span>من نحن</span>
                             </a>
                         </li>
-                        <li> <a href="{{ route('posts.index') }}" class="waves-effect">
+                        <li> <a href="{{ route('media-center.index') }}" class="waves-effect">
                                 <i class="mdi mdi-information"></i>
                                 <span>المركز الاعلامي</span>
                             </a>
                         </li>
-                    </ul>
-                </li>
+                        <li> <a href="{{ route('service-content.index') }}" class="waves-effect">
+                                <i class="mdi mdi-information"></i>
+                                <span>الخدمات</span>
+                            </a>
+                        </li>
+                        <li> <a href="{{ route('team-content.index') }}" class="waves-effect">
+                                <i class="mdi mdi-information"></i>
+                                <span>فريق العمل</span>
+                            </a>
+                        </li>
+                        <li> <a href="{{ route('customer-opinion.index') }}" class="waves-effect">
+                                <i class="mdi mdi-information"></i>
+                                <span>اّراء العملاء</span>
+                            </a>
+                        </li>
 
-                {{-- الفيديوهات --}}
-                <li>
-                    <a href="{{ route('settings.index') }}" class="waves-effect">
-                        <i class="mdi mdi-cog"></i>
-                        <span>الاعدادات</span>
-                    </a>
+                        {{-- الاعدادات --}}
+                        <li>
+                            <a href="{{ route('settings.index') }}" class="waves-effect">
+                                <i class="mdi mdi-cog"></i>
+                                <span>الاعدادات</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
             </ul>

@@ -78,77 +78,82 @@
             </div>
         </div> --}}
 
-<div id="features-container">
-    @if ($about && $about->features)
-        @foreach (json_decode($about->features, true) as $index => $feature)
-            <div class="feature-input">
-                <div class="input-group mb-2">
-                    <input type="text" name="features[]" class="form-control feature" value="{{ $feature }}" placeholder="Enter a feature">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-danger delete-feature">Delete</button>
+        <div id="features-container">
+            @if ($about && $about->features)
+                @foreach (json_decode($about->features, true) as $index => $feature)
+                    <div class="feature-input">
+                        <div class="input-group my-2">
+                            <input type="text" name="features[]" class="form-control feature"
+                                value="{{ $feature }}" placeholder="Enter a feature">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-danger delete-feature">Delete</button>
+                            </div>
+                        </div>
+                        <textarea name="feature_content[]" class="form-control feature-content" placeholder="Enter content for this feature">{{ json_decode($about->feature_content, true)[$index] ?? '' }}</textarea>
                     </div>
+                @endforeach
+            @else
+                <div class="feature-input">
+                    <div class="input-group mb-2">
+                        <input type="text" name="features[]" class="form-control feature" value=""
+                            placeholder="Enter a feature">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-danger delete-feature">Delete</button>
+                        </div>
+                    </div>
+                    <textarea name="feature_content[]" class="form-control feature-content" placeholder="Enter content for this feature"></textarea>
                 </div>
-                <textarea name="feature_content[]" class="form-control feature-content" placeholder="Enter content for this feature">{{ json_decode($about->feature_content, true)[$index] ?? '' }}</textarea>
-            </div>
-        @endforeach
-    @else
-        <div class="feature-input">
-            <div class="input-group mb-2">
-                <input type="text" name="features[]" class="form-control feature" value="" placeholder="Enter a feature">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-danger delete-feature">Delete</button>
-                </div>
-            </div>
-            <textarea name="feature_content[]" class="form-control feature-content" placeholder="Enter content for this feature"></textarea>
+            @endif
         </div>
-    @endif
-</div>
-<button type="button" id="add-feature" class="btn btn-primary">Add feature</button>
+        <div>
+            <button type="button" id="add-feature" class="btn btn-primary">Add feature</button>
 
-<script>
-    document.getElementById('add-feature').addEventListener('click', function() {
-        var container = document.getElementById('features-container');
-        var featureInput = document.createElement('div');
-        featureInput.className = 'feature-input';
+        </div>
 
-        var inputGroup = document.createElement('div');
-        inputGroup.className = 'input-group mb-2';
+        <script>
+            document.getElementById('add-feature').addEventListener('click', function() {
+                var container = document.getElementById('features-container');
+                var featureInput = document.createElement('div');
+                featureInput.className = 'feature-input';
 
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.name = 'features[]';
-        input.className = 'form-control feature';
-        input.placeholder = 'Enter a feature';
+                var inputGroup = document.createElement('div');
+                inputGroup.className = 'input-group mb-2';
 
-        var inputGroupAppend = document.createElement('div');
-        inputGroupAppend.className = 'input-group-append';
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.name = 'features[]';
+                input.className = 'form-control feature';
+                input.placeholder = 'Enter a feature';
 
-        var deleteButton = document.createElement('button');
-        deleteButton.type = 'button';
-        deleteButton.className = 'btn btn-danger delete-feature';
-        deleteButton.textContent = 'Delete';
+                var inputGroupAppend = document.createElement('div');
+                inputGroupAppend.className = 'input-group-append';
 
-        inputGroupAppend.appendChild(deleteButton);
-        inputGroup.appendChild(input);
-        inputGroup.appendChild(inputGroupAppend);
+                var deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.className = 'btn btn-danger delete-feature';
+                deleteButton.textContent = 'Delete';
 
-        var textarea = document.createElement('textarea');
-        textarea.name = 'feature_content[]';
-        textarea.className = 'form-control feature-content';
-        textarea.placeholder = 'Enter content for this feature';
+                inputGroupAppend.appendChild(deleteButton);
+                inputGroup.appendChild(input);
+                inputGroup.appendChild(inputGroupAppend);
 
-        featureInput.appendChild(inputGroup);
-        featureInput.appendChild(textarea);
-        container.appendChild(featureInput);
-    });
+                var textarea = document.createElement('textarea');
+                textarea.name = 'feature_content[]';
+                textarea.className = 'form-control feature-content';
+                textarea.placeholder = 'Enter content for this feature';
 
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('delete-feature')) {
-            var featureInput = event.target.closest('.feature-input');
-            featureInput.remove();
-        }
-    });
-</script>
+                featureInput.appendChild(inputGroup);
+                featureInput.appendChild(textarea);
+                container.appendChild(featureInput);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete-feature')) {
+                    var featureInput = event.target.closest('.feature-input');
+                    featureInput.remove();
+                }
+            });
+        </script>
 
 
 

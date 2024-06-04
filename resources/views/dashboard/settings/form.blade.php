@@ -196,52 +196,6 @@
     }
 </script>
 
-
-{{-- وصف المركز الاعلامي --}}
-<div class="form-group mt-3">
-    <label for="media_center_title">وصف المركز الاعلامي</label>
-    <input type="text" name="media_center_title" class="form-control"
-        value="{{ old('media_center_title', $settings->media_center_title ?? '') }}"
-        id="exampleInputmedia_center_title1" aria-describedby="media_center_titleHelp">
-
-    @error('media_center_title')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('media_center_title') }}
-            </p>
-        </div>
-    @enderror
-</div>
-{{-- محتوي المركز الاعلامي --}}
-<div class="form-group mt-3">
-    <label for="floatingTextarea2">محتوي المركز الاعلامي</label>
-    <div class="form-floating">
-        <textarea class="form-control" name="media_center_content" id="floatingTextarea2"style="height: 100px">{{ $settings->media_center_content }}</textarea>
-    </div>
-
-    @error('media_center_content')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('media_center_content') }}
-            </p>
-        </div>
-    @enderror
-</div>
-{{-- media_center_video_link --}}
-<div class="form-group mt-3">
-    <label for="floatingTextarea2"> (المركز الاعلامي ) لينك فيديو </label>
-    <input type="text" name="media_center_video_link" class="form-control"
-        value="{{ old('media_center_video_link', $settings->media_center_video_link ?? '') }}"
-        id="exampleInputmedia_center_video_link1" aria-describedby="media_center_video_linkHelp">
-
-    @error('media_center_video_link')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('media_center_video_link') }}
-            </p>
-        </div>
-    @enderror
-</div>
 {{-- content محتوي اسفل الصحة يمين --}}
 <div class="form-group mt-3">
     <label for="floatingTextarea2">محتوي اسفل الصفحة يمين</label>

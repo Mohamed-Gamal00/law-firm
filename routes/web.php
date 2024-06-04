@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\customizesite\AboutContentController;
+use App\Http\Controllers\Dashboard\customizesite\CustomerOpinionController;
 use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
+use App\Http\Controllers\Dashboard\customizesite\MediacenterContentController;
+use App\Http\Controllers\Dashboard\customizesite\ServiceContentController;
+use App\Http\Controllers\Dashboard\customizesite\TeamContentController;
 use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\PhotoController;
 use App\Http\Controllers\Dashboard\PostController;
@@ -58,7 +62,19 @@ Route::middleware('auth')->group(function () {
         Route::get('about-us', [AboutContentController::class, 'index'])->name('about-us.index');
         Route::put('about-us', [AboutContentController::class, 'update'])->name('about-us.update');
 
+        /* media center */
+        Route::get('media-center', [MediacenterContentController::class, 'index'])->name('media-center.index');
+        Route::put('media-center', [MediacenterContentController::class, 'update'])->name('media-center.update');
 
+        /* services */
+        Route::get('service-content', [ServiceContentController::class, 'index'])->name('service-content.index');
+        Route::put('service-content', [ServiceContentController::class, 'update'])->name('service-content.update');
+
+        /* teamcontent */
+        Route::get('team-content', [TeamContentController::class, 'index'])->name('team-content.index');
+        Route::put('team-content', [TeamContentController::class, 'update'])->name('team-content.update');
+
+        Route::resource('customer-opinion', CustomerOpinionController::class);
     });
 });
 
