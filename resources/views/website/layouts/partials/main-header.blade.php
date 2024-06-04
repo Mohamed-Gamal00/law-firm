@@ -4,7 +4,11 @@
 <!--=====================================================================-->
 <div id="mySidenav" class="sidenav">
     <div class="col-xs-12">
-        <img src="{{ asset('website/images/logo.png') }}" alt="">
+        {{-- <img src="{{ asset('website/images/logo.png') }}" alt=""> --}}
+        @if ($settings->logo)
+            <img style="object-fit: cover;border-radius: 8px;" src="{{ asset("storage/$settings->logo") }}" width="100%"
+                height="60" alt="img">
+        @endif
     </div>
     <div class="col-xs-12">
         <ul class="main-menu">
@@ -24,10 +28,19 @@
 
         </ul>
         <ul class="social">
-            <li><a href=""><i class="fab fa-twitter"></i></a>
-            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href=""><i class="fab fa-instagram"></i></a></li>
-            <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+            @if ($settings->tw_link)
+                <li><a href="{{ $settings->tw_link }}"><i class="fab fa-twitter"></i></a>
+            @endif
+            @if ($settings->fb_link)
+                <li><a href="{{ $settings->fb_link }}"><i class="fab fa-facebook-f"></i></a></li>
+            @endif
+            @if ($settings->insta_link)
+                <li><a href="{{ $settings->insta_link }}"><i class="fab fa-instagram"></i></a></li>
+            @endif
+            @if ($settings->linkdin_link)
+                <li><a href="{{ $settings->linkdin_link }}"><i class="fab fa-linkedin-in"></i></a></li>
+            @endif
+
 
         </ul>
         <a class="booking" href=""> حجز موعد</a>
@@ -40,8 +53,15 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ul>
-                    <li><a href=""><i class="far fa-envelope"></i>ceo@info.com</a></li>
-                    <li><a href=""> <i class="fa fa-phone-alt"></i>+971563579468</a></li>
+                    {{-- <li><a href=""><i class="far fa-envelope"></i>ceo@info.com</a></li> --}}
+                    {{-- <li><a href=""> <i class="fa fa-phone-alt"></i>+971563579468</a></li> --}}
+                    {{-- <li><a href=""><i class="far fa-envelope"></i>{{ $settings->email }}</a></li> --}}
+                    @if ($settings->email)
+                        <li><a href=""><i class="far fa-envelope"></i>{{ $settings->email }}</a></li>
+                    @endif
+                    @if ($settings->phone)
+                        <li><a href=""> <i class="fa fa-phone-alt"></i>+{{ $settings->phone }}</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -53,8 +73,14 @@
         <div class="row">
             <div class="col-md-2 col-sm-6 col-xs-6">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img class="img-responsive"
-                            src="{{ asset('website/images/logo.png') }}" alt=""></a>
+                    <a href="{{ route('home') }}">
+                        {{-- <img class="img-responsive"
+                            src="{{ asset('website/images/logo.png') }}" alt=""> --}}
+                        @if ($settings->logo)
+                            <img class="img-responsive" src="{{ asset("storage/$settings->logo") }}" alt="img">
+                        @endif
+
+                    </a>
                 </div>
             </div>
             <div class="col-md-10 col-sm-6 col-xs-6">
@@ -77,17 +103,26 @@
 
                     </ul>
                     <ul class="social">
-                        <li><a href=""><i class="fab fa-twitter"></i></a>
-                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                        <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                        @if ($settings->tw_link)
+                            <li><a href="{{ $settings->tw_link }}"><i class="fab fa-twitter"></i></a>
+                        @endif
+                        @if ($settings->fb_link)
+                            <li><a href="{{ $settings->fb_link }}"><i class="fab fa-facebook-f"></i></a></li>
+                        @endif
+                        @if ($settings->insta_link)
+                            <li><a href="{{ $settings->insta_link }}"><i class="fab fa-instagram"></i></a></li>
+                        @endif
+                        @if ($settings->linkdin_link)
+                            <li><a href="{{ $settings->linkdin_link }}"><i class="fab fa-linkedin-in"></i></a></li>
+                        @endif
+
 
                     </ul>
                     <ul class="other">
                         <li class="searching"> <i class="fa fa-search"></i> </li>
                         <li><a href=""><img src="{{ asset('website/images/us.png') }}" alt=""></a> </li>
                     </ul>
-                    <a class="booking" href="{{route('booking')}}"> حجز موعد</a>
+                    <a class="booking" href="{{ route('booking') }}"> حجز موعد</a>
                 </div>
                 <div class="hidden-xx">
                     <i class="fa fa-bars" onclick="openNav()"></i>

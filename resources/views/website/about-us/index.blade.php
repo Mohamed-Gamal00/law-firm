@@ -24,20 +24,14 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="content">
-                        <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h4>
-                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                            المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
-                            النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                            التطبيق.
+                        <h4>{{ $abotContent->title }}</h4>
+                        <p>{{ $abotContent->content }}
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="one">
-                        <img src="{{asset('website/images/about-1.png')}}" alt="">
+                        <img src="{{ asset('website/images/about-1.png') }}" alt="">
                         <h4>هدف المكتب</h4>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
                             حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
@@ -51,7 +45,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="one">
-                        <img src="{{asset('website/images/about-2.png')}}" alt="">
+                        <img src="{{ asset('website/images/about-2.png') }}" alt="">
                         <h4>هدف المكتب</h4>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
                             حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
@@ -65,7 +59,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="one">
-                        <img src="{{asset('website/images/about-3.png')}}" alt="">
+                        <img src="{{ asset('website/images/about-3.png') }}" alt="">
                         <h4>هدف المكتب</h4>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
                             حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
@@ -79,7 +73,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="one">
-                        <img src="{{asset('website/images/about-4.png')}}" alt="">
+                        <img src="{{ asset('website/images/about-4.png') }}" alt="">
                         <h4>هدف المكتب</h4>
                         <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
                             حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
@@ -101,30 +95,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/W1f4vrU-VS8"
-                        title="YouTube video player" frameborder="0"
+                    <iframe width="100%" height="315" src="{{ $abotContent->video_link }}" title="YouTube video player"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="about-content">
-                        <h3>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h3>
-                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                            المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
-                            النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                            التطبيق.
+                        <h3>{{ $abotContent->title }}</h3>
+                        <p>{{ $abotContent->content }}
                         </p>
                         <ul>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-                            <li> <i class="fa fa-check-circle"></i> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة </li>
-
+                            @if ($abotContent->points && count(json_decode($abotContent->points, true)) > 1)
+                                <ul>
+                                    @foreach (json_decode($abotContent->points, true) as $point)
+                                        <li>
+                                            <i class="fa fa-check-circle"></i>
+                                            {{ $point }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                No certifications
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -138,28 +131,28 @@
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="one">
                         <i class="fa fa-users"></i>
-                        <h4>4</h4>
+                        <h4>{{ $abotContent->team_work }}</h4>
                         <span>فريق العمل</span>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="one">
                         <i class="fa fa-handshake"></i>
-                        <h4>52</h4>
+                        <h4>{{ $abotContent->happy_clients }}</h4>
                         <span>عمــلاء سـعــــداء </span>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="one">
                         <i class="fa fa-gavel"></i>
-                        <h4>125</h4>
+                        <h4>{{ $abotContent->successful_lawsuits }}</h4>
                         <span>قضــايا و دعــاوي ناجـحـة </span>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="one">
                         <i class="fa fa-file-alt"></i>
-                        <h4>250</h4>
+                        <h4>{{ $abotContent->successful_consultations }}</h4>
                         <span>استـشـارات قـانـونــية نـاجحة </span>
                     </div>
                 </div>
@@ -175,7 +168,23 @@
                     <h2>اراء عملائنا</h2>
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="testimonials-slider">
-                            <div class="item">
+                            @forelse ($customerOpinions as $opinion)
+                                <div class="item">
+                                    <div class="content">
+                                        <p>
+                                            {{ $opinion->content }}
+                                        </p>
+                                        <img src="{{ asset('storage/' . $opinion->image) }}" alt="">
+                                        <h5>{{ $opinion->name }}</h5>
+                                        <span>{{ $opinion->status }}</span>
+                                    </div>
+                                </div>
+                            @empty
+                            @endforelse
+                            {{-- @endforelse ($customerOpinions as $opinion)
+
+                            @endforeach --}}
+                            {{-- <div class="item">
                                 <div class="content">
                                     <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
                                         النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص
@@ -186,7 +195,7 @@
                                         النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
                                         زيادة عدد الحروف التى يولدها التطبيق.
                                     </p>
-                                    <img src="{{asset('website/images/user.png')}}" alt="">
+                                    <img src="{{ asset('website/images/user.png') }}" alt="">
                                     <h5>أ\ محمد احمد ابراهيم</h5>
                                     <span>عميل</span>
                                 </div>
@@ -202,7 +211,7 @@
                                         النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
                                         زيادة عدد الحروف التى يولدها التطبيق.
                                     </p>
-                                    <img src="{{asset('website/images/user.png')}}" alt="">
+                                    <img src="{{ asset('website/images/user.png') }}" alt="">
                                     <h5>أ\ محمد احمد ابراهيم</h5>
                                     <span>عميل</span>
                                 </div>
@@ -218,33 +227,17 @@
                                         النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
                                         زيادة عدد الحروف التى يولدها التطبيق.
                                     </p>
-                                    <img src="{{asset('website/images/user.png')}}" alt="">
+                                    <img src="{{ asset('website/images/user.png') }}" alt="">
                                     <h5>أ\ محمد احمد ابراهيم</h5>
                                     <span>عميل</span>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="content">
-                                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص
-                                        يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك
-                                        أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى
-                                        يولدها التطبيق.
-                                        هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
-                                        النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى
-                                        زيادة عدد الحروف التى يولدها التطبيق.
-                                    </p>
-                                    <img src="{{asset('website/images/user.png')}}" alt="">
-                                    <h5>أ\ محمد احمد ابراهيم</h5>
-                                    <span>عميل</span>
-                                </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12">
                     <div class="pic">
-                        <img src="{{asset('website/images/testimonials.png')}}" alt="">
+                        <img src="{{ asset('website/images/testimonials.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -255,12 +248,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-12 col-xs-12">
-                    <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h4>
+                    <h4>{{ $settings->booking_title }}</h4>
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <ul>
-                        <li><a href="">حجز موعد</a></li>
-                        <li><a href="">اتصل بنا </a></li>
+                        <li><a href="{{ route('booking') }}">حجز موعد</a></li>
+                        <li><a href="{{ route('contact') }}">اتصل بنا </a></li>
 
                     </ul>
                 </div>

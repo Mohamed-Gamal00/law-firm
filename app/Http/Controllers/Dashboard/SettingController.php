@@ -73,6 +73,7 @@ class SettingController extends Controller
             'phone' => 'nullable|regex:/(01)[0-9]{9}/',
             'email' => 'nullable|email|max:255',
             'fax' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
             'fb_link' => 'nullable|url|max:255',
             'whatsapp' => 'nullable|string|max:255',
             'tw_link' => 'nullable|url|max:255',

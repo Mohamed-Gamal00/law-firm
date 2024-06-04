@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\customizesite\AboutContentController;
+use App\Http\Controllers\Dashboard\customizesite\BlogContentController;
 use App\Http\Controllers\Dashboard\customizesite\CustomerOpinionController;
 use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
 use App\Http\Controllers\Dashboard\customizesite\MediacenterContentController;
@@ -74,8 +75,13 @@ Route::middleware('auth')->group(function () {
         Route::get('team-content', [TeamContentController::class, 'index'])->name('team-content.index');
         Route::put('team-content', [TeamContentController::class, 'update'])->name('team-content.update');
 
+        /* customer-opinion */
         Route::resource('customer-opinion', CustomerOpinionController::class);
+
+        /* blog content */
+        Route::get('blog-content', [BlogContentController::class, 'index'])->name('blog-content.index');
+        Route::put('blog-content', [BlogContentController::class, 'update'])->name('blog-content.update');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

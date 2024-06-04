@@ -34,7 +34,7 @@ class AboutContentController extends Controller
             'video_link' => 'nullable|url|max:255',
             'video_title' => 'nullable|string|max:255',
             'video_content' => 'nullable|string',
-            'points' => 'nullable',
+            'points' => 'nullable|array',
             'team_work' => 'nullable|string|max:255',
             'happy_clients' => 'nullable|string|max:255',
             'successful_lawsuits' => 'nullable|string|max:255',
@@ -50,6 +50,10 @@ class AboutContentController extends Controller
 
         if ($request->has('feature_content')) {
             $data['feature_content'] = json_encode($request->feature_content);
+        }
+
+        if ($request->has('points')) {
+            $data['points'] = json_encode($request->points);
         }
 
         $about->fill($data);

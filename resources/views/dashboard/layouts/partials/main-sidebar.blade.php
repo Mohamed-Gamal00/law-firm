@@ -113,6 +113,11 @@
                                 <span>اّراء العملاء</span>
                             </a>
                         </li>
+                        <li> <a href="{{ route('blog-content.index') }}" class="waves-effect">
+                                <i class="mdi mdi-information"></i>
+                                <span>المدونة</span>
+                            </a>
+                        </li>
 
                         {{-- الاعدادات --}}
                         <li>

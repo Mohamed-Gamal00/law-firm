@@ -31,7 +31,7 @@ $('.main-slider').owlCarousel({
 
 
 $('.testimonials-slider').owlCarousel({
-    loop: true,
+    loop: false,
     margin: 30,
     nav: false,
     rtl: true,

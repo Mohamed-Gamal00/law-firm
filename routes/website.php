@@ -9,6 +9,7 @@ use App\Http\Controllers\Website\NewsController;
 use App\Http\Controllers\Website\ServiceController;
 use App\Http\Controllers\Website\TeamController;
 use App\Http\Controllers\Website\VideoGalleryController;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,6 +17,19 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('website.home.index');
 // });
+
+// Route::get('/', function () {
+//     $settings = Setting::first();
+
+//     if (!$settings) {
+//         $settings = new Setting();
+//     }
+//     return view('website.layouts.partials.main-header', compact('settings'));
+// });
+
+
+
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -28,4 +42,4 @@ Route::get('/media-center/images-gallery', [GalleryController::class, 'index'])-
 Route::get('/media-center/videos-gallery', [VideoGalleryController::class, 'index'])->name('videos');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

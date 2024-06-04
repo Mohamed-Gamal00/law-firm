@@ -68,6 +68,7 @@
                                                             @method('DELETE')
 
 
+                                                            {{-- <div class="col-sm-8 col-md-4 mg-t-10 mg-md-t-0 p-0"> --}}
                                                             <div class="col-sm-8 col-md-4 mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit" href="{{route('main-page.edit',$item->id)}}" title="تعديل">
                                                                     <i class="fas fa-pencil-alt"></i>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('fax')->nullable();
+            $table->string('address')->nullable();
             $table->string('fb_link')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('tw_link')->nullable();

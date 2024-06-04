@@ -70,6 +70,23 @@
             @enderror
         </div>
     </div>
+    {{-- fax --}}
+    <div class="col-md-6">
+
+        <div class="form-group">
+            <label for="exampleInputfax1">العنوان</label>
+            <input type="text" name="address" class="form-control" value="{{ old('address', $settings->address ?? '') }}"
+                id="exampleInputaddress1" aria-describedby="addressHelp">
+
+            @error('address')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('address') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div>
     {{-- tw_link --}}
     <div class="col-md-6">
         <div class="form-group">
@@ -216,7 +233,7 @@
 <div class="form-group">
     <label for="floatingTextarea2">محتوي اسفل الصفحة يسار</label>
     <div class="form-floating">
-        <textarea class="form-control" name="footer_content_left	" id="floatingTextarea2"style="height: 100px">{{ $settings->footer_content_left }}</textarea>
+        <textarea class="form-control" name="footer_content_left" id="floatingTextarea2"style="height: 100px">{{ $settings->footer_content_left }}</textarea>
     </div>
 
     @error('footer_content_left ')
