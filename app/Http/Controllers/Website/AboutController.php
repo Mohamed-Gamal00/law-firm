@@ -16,7 +16,8 @@ class AboutController extends Controller
         $settings = Setting::first() ?? new Setting();
         $abotContent = About::first() ?? new About();
         $customerOpinions = CustomerOpinion::all() ?? new CustomerOpinion;
-        // dd($customerOpinions);
-        return view('website.about-us.index', compact('settings', 'abotContent', 'customerOpinions'));
+        $image_section = CustomerOpinion::select('image_section')->whereNotNull('image_section')->first() ?? new CustomerOpinion();
+        // dd($abotContent);
+        return view('website.about-us.index', compact('settings', 'abotContent', 'customerOpinions','image_section'));
     }
 }

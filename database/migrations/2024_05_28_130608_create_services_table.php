@@ -12,6 +12,7 @@ class CreateServicesTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->text('content');
+			$table->text('service_desc')->nullable();
 			$table->string('image')->nullable();
 			$table->string('phone')->nullable();
 			$table->string('whatsapp')->nullable();

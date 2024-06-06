@@ -9,6 +9,6 @@ class Service extends Model
 
     protected $table = 'services';
     public $timestamps = true;
-    protected $fillable = array('title', 'content', 'image', 'phone', 'whatsapp');
+    protected $fillable = array('title', 'content', 'image', 'phone', 'service_desc', 'whatsapp');
 
 }

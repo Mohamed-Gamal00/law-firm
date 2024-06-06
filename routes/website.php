@@ -34,9 +34,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/services/service/{id}', [ServiceController::class, 'show'])->name('service');
+
 Route::get('/teams', [TeamController::class, 'index'])->name('teams');
+Route::get('/teams/member/{id}', [TeamController::class, 'show'])->name('member');
+
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
+
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+
 Route::get('/media-center/news', [NewsController::class, 'index'])->name('news');
 Route::get('/media-center/images-gallery', [GalleryController::class, 'index'])->name('galleries');
 Route::get('/media-center/videos-gallery', [VideoGalleryController::class, 'index'])->name('videos');

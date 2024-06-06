@@ -1,6 +1,5 @@
 @extends('dashboard.layouts.master')
 @section('css')
-
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
@@ -20,8 +19,13 @@
 @endsection
 @section('content')
     <div class="my-5">
+        @if (Session::has('image_section'))
+            <div class="alert alert-warning text-center" role="alert">
+                {{ Session::get('image_section') }}
+            </div>
+        @endif
         {{-- @include('dashboard.layouts.partials.error_validation') --}}
-        <form method="POST" action="{{ route('customer-opinion.update',$data) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('customer-opinion.update', $data) }}" enctype="multipart/form-data">
             @method('PUT')
             @include('dashboard.customize-site.customer-opinion.form')
         </form>

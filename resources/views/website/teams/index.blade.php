@@ -24,112 +24,26 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="head">
-                        <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                            المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
-                            النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                            التطبيق.
+                        <h4>{{ $teamContent->content }}
                         </h4>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
+                @forelse ($teams as $member)
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="one">
+                            <img src="{{ asset('storage/'.$member->image) }}" alt="">
+                            <div class="content">
+                                <h4>{{$member->name}}</h4>
+                                <span>فريق العمل</span>
+                            </div>
+                            <div class="overlay">
+                                <a href="{{route('member',$member->id)}}"><i class="fa fa-plus"></i> اعرف أكثر </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="one">
-                        <img src="{{asset('website/images/pic-1.png')}}" alt="">
-                        <div class="content">
-                            <h4>صهيب على امام</h4>
-                            <span>فريق العمل</span>
-                        </div>
-                        <div class="overlay">
-                            <a href="teamWork-details.html"><i class="fa fa-plus"></i> اعرف أكثر </a>
-                        </div>
-                    </div>
-                </div>
+
+                @empty
+                @endforelse
             </div>
         </div>
     </div>
@@ -138,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-12 col-xs-12">
-                    <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h4>
+                    <h4>{{$settings->booking_title}}</h4>
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <ul>

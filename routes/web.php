@@ -77,7 +77,6 @@ Route::middleware('auth')->group(function () {
 
         /* customer-opinion */
         Route::resource('customer-opinion', CustomerOpinionController::class);
-
         /* blog content */
         Route::get('blog-content', [BlogContentController::class, 'index'])->name('blog-content.index');
         Route::put('blog-content', [BlogContentController::class, 'update'])->name('blog-content.update');

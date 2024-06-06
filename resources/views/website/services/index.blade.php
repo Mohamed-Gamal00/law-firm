@@ -30,27 +30,25 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="con">
-                            <h4>{{$serviceContent->title}}</h4>
-                            <p>{{$serviceContent->content}}
+                            <h4>{{ $serviceContent->title }}</h4>
+                            <p>{{ $serviceContent->content }}
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="one">
-                            <img src="{{ asset('website/images/icon-1.png') }}" alt="">
-                            <h4>القانون التجاري الدولي</h4>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-                                العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن
-                                يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا
-                                النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-                                العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
-                                التى يولدها التطبيق.
-                            </p>
-                            <a href=""> <i class="fa fa-plus"></i> أعرف اكثر</a>
+                    @forelse ($services as $service)
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="one">
+                                <img src="{{ asset('storage/'.$service->image) }}" alt="">
+                                <h4> {{$service->title}}</h4>
+                                <p>{{$service->service_desc}}
+                                </p>
+                                <a href="{{route('service',$service->id)}}"> <i class="fa fa-plus"></i> أعرف اكثر</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
+
+                    @empty
+                    @endforelse
+                    {{-- <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="one">
                             <img src="{{ asset('website/images/icon-2.png') }}" alt="">
                             <h4>قضايا الضرائب والزكاة والجمارك</h4>
@@ -94,7 +92,7 @@
                             </p>
                             <a href=""> <i class="fa fa-plus"></i> أعرف اكثر</a>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -105,8 +103,8 @@
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="content">
                             <h3>المركز الإعلامي</h3>
-                            <h5>{{$mediaCenterContent->title}}</h5>
-                            <p>{{$mediaCenterContent->content}}</p>
+                            <h5>{{ $mediaCenterContent->title }}</h5>
+                            <p>{{ $mediaCenterContent->content }}</p>
                             <ul>
                                 <li><a href="">الاخبار</a></li>
                                 <li><a href="">معرض صور </a></li>
@@ -116,7 +114,7 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-sm-12 col-xs-12">
-                        <iframe width="100%" height="315" src="{{$mediaCenterContent->video_link}}"
+                        <iframe width="100%" height="315" src="{{ $mediaCenterContent->video_link }}"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
@@ -133,8 +131,8 @@
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <ul>
-                            <li><a href="{{route('booking')}}">حجز موعد</a></li>
-                            <li><a href="{{route('contact')}}">اتصل بنا </a></li>
+                            <li><a href="{{ route('booking') }}">حجز موعد</a></li>
+                            <li><a href="{{ route('contact') }}">اتصل بنا </a></li>
 
                         </ul>
                     </div>

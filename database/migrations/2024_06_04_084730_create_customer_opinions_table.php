@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->string('name')->nullable();
             $table->string('image')->nullable();
+            $table->string('image_section')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

@@ -40,8 +40,58 @@
                                         {{ Session::get('success') }}
                                     </div>
                                 @endif
+                                @if (Session::has('image_section'))
+                                    <div class="alert alert-warning text-center" role="alert">
+                                        {{ Session::get('image_section') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @if ($image_section)
+
+                                            <div class="form-group my-3">
+                                                <label for="image_section">صورة الرئيسية </label>
+                                                <div class="mt-1" id="imagePreview2">
+
+                                                    @if ($image_section)
+                                                        <img style="object-fit: cover"
+                                                            src="{{ asset("storage/$image_section->image_section") }}" width="100"
+                                                            height="100" alt="image_section">
+                                                    @endif
+                                                </div>
+                                                @error('image_section')
+                                                    <div>
+                                                        <p class="text-danger">
+                                                            {{ $errors->first('image_section') }}
+                                                        </p>
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <script>
+                                                function previewImage(input, previewId) {
+                                                    var file = input.files[0];
+                                                    var reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        var imgPreview = document.getElementById(previewId);
+                                                        imgPreview.innerHTML = '<img src="' + e.target.result + '" width="60" height="60" alt="preview">';
+                                                    }
+                                                    reader.readAsDataURL(file);
+                                                }
+                                            </script>
+                                        @endif
+
+                                        <div>
+                                            <a class="btn btn-secondary btn-sm edit"
+                                                href="{{ route('customer-opinion.edit', $image_section->id) }}" title="تعديل">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
@@ -51,6 +101,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>الصورة</th>
+                                                {{-- <th>الصورة</th> --}}
                                                 <th>المحتوي</th>
                                                 <th>اسم العميل</th>
                                                 <th>الحالة</th>
@@ -65,6 +116,10 @@
                                                             style="object-fit: cover;border-radius: 8px;"
                                                             src="{{ asset("storage/$item->image") }}" width="60"
                                                             height="60" alt="img"></td>
+                                                    {{-- <td class="align-middle"><img
+                                                            style="object-fit: cover;border-radius: 8px;"
+                                                            src="{{ asset("storage/$item->image_section") }}" width="60"
+                                                            height="60" alt="img"></td> --}}
                                                     <td class="align-middle">{{ $item->content }}</td>
                                                     <td class="align-middle">{{ $item->name }}</td>
                                                     <td class="align-middle">{{ $item->status }}</td>

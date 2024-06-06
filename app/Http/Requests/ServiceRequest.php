@@ -25,6 +25,7 @@ class ServiceRequest extends FormRequest
             'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'content' => 'required|string',
+            'service_desc' => 'nullable|string',
         ];
     }
 

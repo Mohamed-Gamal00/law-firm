@@ -51,7 +51,8 @@
                                                 <th>#</th>
                                                 <th>الصورة</th>
                                                 <th>العنوان</th>
-                                                <th>المحتوي</th>
+                                                <th>وصف الخدمة</th>
+                                                {{-- <th>المحتوي</th> --}}
                                                 <th>اعدادات</th>
                                             </tr>
                                         </thead>
@@ -64,7 +65,8 @@
                                                             src="{{ asset("storage/$service->image") }}" width="60"
                                                             height="60" alt="img"></td>
                                                     <td class="align-middle">{{ $service->title }}</td>
-                                                    <td class="align-middle">{{ $service->content }}</td>
+                                                    {{-- <td class="align-middle">{!! $service->content !!}</td> --}}
+                                                    <td class="align-middle">{{ $service->service_desc }}</td>
                                                     <td class="align-middle">
 
                                                         <form action="{{ route('services.destroy', $service->id) }}"
@@ -121,5 +123,6 @@
 
 
 @endsection
+
 @section('js')
 @endsection

@@ -194,32 +194,6 @@
             </div>
         @enderror
 
-        {{-- <div class="form-group">
-            <label for="points">Points</label>
-            @if ($about && $about->points)
-                @foreach (json_decode($about->points, true) as $index => $point)
-                    <div class="point-input">
-                        <div class="input-group my-2">
-                            <input type="text" name="points[]" class="form-control point"
-                                value="{{ $point }}" placeholder="Enter a point">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-danger delete-point">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            @else
-                <div class="feature-input">
-                    <div class="input-group mb-2">
-                        <input type="text" name="points[]" class="form-control feature" value=""
-                            placeholder="Enter a feature">
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-danger delete-feature">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            @endif
-        </div> --}}
         <div class="form-group">
             <label for="points">Points</label>
             <div id="points-container">

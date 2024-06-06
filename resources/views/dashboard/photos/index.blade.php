@@ -58,7 +58,7 @@
                                             @foreach ($photos as $photo)
                                                 <tr>
                                                     <th scope="row " class="align-middle">{{ $loop->iteration }}</th>
-                                                    <td class="align-middle">{{ $photo->title?$photo->title:'no title exist' }}</td>
+                                                    <td class="align-middle">{{ $photo->title?$photo->title:'' }}</td>
                                                     <td class="align-middle"><img
                                                             style="object-fit: cover;border-radius: 8px;"
                                                             src="{{ asset("storage/$photo->image") }}" width="60"

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerOpinion extends Model
 {
     use HasFactory;
-    protected $fillable = array('name', 'content', 'image', 'status');
+    protected $fillable = array('name', 'content', 'image', 'image_section', 'status');
 
 }

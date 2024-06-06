@@ -55,8 +55,8 @@
                                                 <th>الخبرة</th>
                                                 <th>الايميل</th>
                                                 <th>رقم الهاتف</th>
-                                                <th>بيانات شخصية</th>
-                                                <th>شهادات وخبرات</th>
+                                                {{-- <th>بيانات شخصية</th> --}}
+                                                {{-- <th>شهادات وخبرات</th> --}}
                                                 <th>اعدادات</th>
                                             </tr>
                                         </thead>
@@ -73,10 +73,10 @@
                                                     <td class="align-middle">{{ $member->experience }}</td>
                                                     <td class="align-middle">{{ $member->email }}</td>
                                                     <td class="align-middle">{{ $member->phone }}</td>
-                                                    <td class="align-middle">{{ $member->personal_info }}</td>
-                                                    <td class="align-middle">
+                                                    {{-- <td class="align-middle">{!! $member->personal_info !!}</td> --}}
+                                                    {{-- <td class="align-middle">
 
-                                                        @if ($member->certifications && count(json_decode($member->certifications, true)) > 1)
+                                                        @if ($member->certifications && count(json_decode($member->certifications, true)) > 0)
                                                             <ul>
                                                                 @foreach (json_decode($member->certifications, true) as $certification)
                                                                     <li>{{ $certification }}</li>
@@ -85,12 +85,8 @@
                                                         @else
                                                             No certifications
                                                         @endif
-                                                    </td>
-                                                    {{-- <td class="align-middle">
-                                                        @foreach ($member->certifications as $certification)
-                                                            {{ $certification }}<br>
-                                                        @endforeach
                                                     </td> --}}
+
                                                     <td class="align-middle">
 
                                                         <form action="{{ route('teams.destroy', $member->id) }}"
@@ -99,7 +95,7 @@
                                                             @method('DELETE')
 
 
-                                                            <div class="col-sm-6 col-md-6 mg-t-10 mg-md-t-0 p-0">
+                                                            <div class="col-sm-6 col-md-8 mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit"
                                                                     href="{{ route('teams.edit', $member->id) }}"
                                                                     title="تعديل">

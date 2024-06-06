@@ -197,7 +197,27 @@
 {{-- personal_info --}}
 <div class="form-group">
     <label for="personal_info">البيانات الشخصية والمهنية</label>
-    <div class="form-floating">
+
+    <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <textarea id="elm1" name="personal_info">{{ $member->personal_info }}</textarea>
+
+            </div>
+            @error('personal_info')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('personal_info') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
+    {{-- <div class="form-floating">
         <textarea class="form-control" name="personal_info" id="personal_info"style="height: 100px">{{ old('personal_info', $member->personal_info) }}</textarea>
     </div>
 
@@ -207,24 +227,34 @@
                 {{ $errors->first('personal_info') }}
             </p>
         </div>
-    @enderror
+    @enderror --}}
 </div>
 
 
 {{-- certifications --}}
-<div class="form-group">
+
+{{-- <div class="form-group">
     <label for="certifications">الشهادات والخبرات</label>
     <div id="certifications-container">
         @if ($member->certifications)
             @foreach (json_decode($member->certifications, true) as $certification)
-                <input type="text" name="certifications[]" class="form-control mb-2"
-                    value="{{ $certification }}" placeholder="Enter a certification">
+                <div class="input-group mb-2 certification-input">
+                    <input type="text" name="certifications[]" class="form-control" value="{{ $certification }}"
+                        placeholder="Enter a certification">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger remove-certification">Remove</button>
+                    </div>
+                </div>
             @endforeach
         @else
-            <input type="text" name="certifications[]" class="form-control mb-2" value=""
-                placeholder="Enter a certification">
+            <div class="input-group mb-2 certification-input">
+                <input type="text" name="certifications[]" class="form-control" value=""
+                    placeholder="Enter a certification">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger remove-certification">Remove</button>
+                </div>
+            </div>
         @endif
-        {{-- <input type="text" name="certifications[]" class="form-control mb-2" value="" placeholder="Enter a certification"> --}}
     </div>
     <button type="button" id="add-certification" class="btn btn-primary">Add Certification</button>
 
@@ -238,14 +268,40 @@
 <script>
     document.getElementById('add-certification').addEventListener('click', function() {
         var container = document.getElementById('certifications-container');
+        var inputGroup = document.createElement('div');
+        inputGroup.className = 'input-group mb-2 certification-input';
+
         var input = document.createElement('input');
         input.type = 'text';
         input.name = 'certifications[]';
-        input.className = 'form-control mb-2';
+        input.className = 'form-control';
         input.placeholder = 'Enter a certification';
-        container.appendChild(input);
+
+        var inputGroupAppend = document.createElement('div');
+        inputGroupAppend.className = 'input-group-append';
+
+        var removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'btn btn-danger remove-certification';
+        removeButton.textContent = 'Remove';
+        removeButton.addEventListener('click', function() {
+            container.removeChild(inputGroup);
+        });
+
+        inputGroupAppend.appendChild(removeButton);
+        inputGroup.appendChild(input);
+        inputGroup.appendChild(inputGroupAppend);
+        container.appendChild(inputGroup);
     });
-</script>
+
+    document.querySelectorAll('.remove-certification').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var container = document.getElementById('certifications-container');
+            var inputGroup = button.closest('.certification-input');
+            container.removeChild(inputGroup);
+        });
+    });
+</script> --}}
 
 
 

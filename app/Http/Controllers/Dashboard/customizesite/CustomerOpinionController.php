@@ -16,7 +16,12 @@ class CustomerOpinionController extends Controller
     public function index()
     {
         $data = CustomerOpinion::paginate(10);
-        return view('dashboard.customize-site.customer-opinion.index', compact('data'));
+        // $imageId = CustomerOpinion::whereNotNull('image_section')->pluck('id')->first();
+        $image_section = CustomerOpinion::select('image_section', 'id')->whereNotNull('image_section')->first();
+        // dd($image_section);
+
+        // $image_section = CustomerOpinion::whereNotNull('image_section')->pluck('image_section')[0] ?? new CustomerOpinion;
+        return view('dashboard.customize-site.customer-opinion.index', compact('data', 'image_section'));
     }
     /**
      * Show the form for creating a new resource.
@@ -37,13 +42,25 @@ class CustomerOpinionController extends Controller
             'name' => 'required|string|max:255',
             'content' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+            'image_section' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
             'status' => 'nullable|string',
         ]);
 
-        $data = $request->except('image');
+        // Prepare data for creating CustomerOpinion
+        $data = $request->except(['image', 'image_section']);
 
+        // Handle image upload for 'image'
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request,"public");
+            $data['image'] = $this->uploadImage($request->file('image'), "public");
+        }
+        // Handle image upload for 'image_section'
+        if ($request->hasFile('image_section')) {
+            // Check if image_section already exists
+            if (CustomerOpinion::whereNotNull('image_section')->exists()) {
+                return redirect()->route('customer-opinion.create')->with('image_section', 'Image section already exists.');
+            } else {
+                $data['image_section'] = $this->uploadImage($request->file('image_section'), "public");
+            }
         }
         // dd($data);
 
@@ -77,19 +94,22 @@ class CustomerOpinionController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'content' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_section' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'nullable|string',
         ]);
-        $data = $request->except('image');
-        // dd($data);
+
+        // Separate image and image_section from other data
+        $data = $request->except(['image', 'image_section']);
+
         if ($request->hasFile('image')) {
-            $oldImage = $opinion->image;
-            if ($oldImage) {
-                Storage::delete($opinion->image);
-            }
-            $data['image'] = $this->uploadImage($request,"public");
+            $data['image'] = $this->uploadImage($request->file('image'), "public");
         }
-        // dd($data);
+
+        // Handle image_section update without blocking the update
+        if ($request->hasFile('image_section')) {
+            $data['image_section'] = $this->uploadImage($request->file('image_section'), "public");
+        }
         $opinion->update($data);
         return Redirect::route('customer-opinion.index')->with('success', 'تم التعديل ب نجاح');
     }
@@ -100,17 +120,21 @@ class CustomerOpinionController extends Controller
     public function destroy(string $id)
     {
         $opinion = CustomerOpinion::findOrFail($id);
-        Storage::delete($opinion->image); //unlink
+        if ($opinion->image) {
+            Storage::delete($opinion->image); //unlink
+        }
         $opinion->delete();
         return Redirect::route('customer-opinion.index')->with('success', 'opinion Deleted success');
     }
 
-    protected function uploadImage(Request $request, $imageFolder)
+
+    /*
+    $image = request file
+    $disk = place which saved in this cace will saved in public folder
+    */
+    private function uploadImage($image, $disk)
     {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$imageFolder", $request->image);
-        return $filePath;
+        $path = $image->store($disk);
+        return $path;
     }
 }

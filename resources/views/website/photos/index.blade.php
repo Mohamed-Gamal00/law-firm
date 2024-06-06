@@ -32,102 +32,19 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="gallery">
 
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 11</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 11</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
-                        <div class="gallery-item">
-                            <img class="thumb placeholder" src="{{asset('website/images/serv-1.png')}}" data-src="{{asset('website/images/serv-1.png')}}"
-                                data-image="{{asset('website/images/serv-1.png')}}" data-title="هذا النص لمثال يمكن ان يستبدل"
-                                alt="Photo by Daniel J. Schwarz">
-                            <div class="caption"><span>Caption 1</span></div>
-                        </div>
+                        @forelse ($photos as $photo)
+                            <div class="gallery-item">
+                                {{-- <img src="{{asset('storage/'. $photo->image)}}" alt=""> --}}
+                                <img class="thumb placeholder" src="{{asset('storage/'. $photo->image)}}"
+                                    data-src="{{asset('storage/'. $photo->image)}}"
+                                    data-image="{{asset('storage/'. $photo->image)}}"
+                                    data-title="{{$photo->title}}" alt="Photo by Daniel J. Schwarz">
+                                <div class="caption"><span>{{$photo->title}}</span></div>
+                            </div>
+
+                        @empty
+                        @endforelse
+
 
                     </div><!--gallery-->
                 </div>
@@ -154,6 +71,5 @@
     </div>
 @endsection
 @section('js')
-<script src="{{asset('website/js/lightbox.js')}}"></script>
-
+    <script src="{{ asset('website/js/lightbox.js') }}"></script>
 @endsection

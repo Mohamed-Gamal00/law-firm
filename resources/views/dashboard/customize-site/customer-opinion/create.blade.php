@@ -19,6 +19,11 @@
 @endsection
 @section('content')
     <div class="my-5">
+        @if (Session::has('image_section'))
+            <div class="alert alert-warning text-center" role="alert">
+                {{ Session::get('image_section') }}
+            </div>
+        @endif
         {{-- @include('dashboard.layouts.partials.error_validation') --}}
         <form method="POST" action="{{ route('customer-opinion.store') }}" enctype="multipart/form-data">
             @include('dashboard.customize-site.customer-opinion.form')

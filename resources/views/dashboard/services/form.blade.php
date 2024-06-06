@@ -52,20 +52,38 @@
 
 {{-- content --}}
 <div class="form-group">
-    <label for="floatingTextarea2">المحتوي</label>
+    <label for="floatingTextarea2">وصف الخدمة</label>
     <div class="form-floating">
-        <textarea class="form-control" name="content" id="floatingTextarea2"style="height: 100px">{{ $service->content }}</textarea>
+        <textarea class="form-control" name="service_desc" id="floatingTextarea2"style="height: 100px">{{ $service->service_desc }}</textarea>
     </div>
 
-    @error('content')
+    @error('service_desc')
         <div>
             <p class="text-danger">
-                {{ $errors->first('content') }}
+                {{ $errors->first('service_desc') }}
             </p>
         </div>
     @enderror
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <textarea id="elm1" name="content">{{ $service->content }}</textarea>
+
+            </div>
+            @error('content')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('content') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
 
 
 
