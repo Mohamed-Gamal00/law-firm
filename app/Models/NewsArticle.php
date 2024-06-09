@@ -9,6 +9,6 @@ class NewsArticle extends Model
 
     protected $table = 'NewsArticles';
     public $timestamps = true;
-    protected $fillable = array('title', 'content', 'image');
+    protected $fillable = array('title', 'desc', 'content', 'image');
 
 }

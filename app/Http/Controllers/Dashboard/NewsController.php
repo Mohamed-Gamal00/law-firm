@@ -70,8 +70,11 @@ class NewsController extends Controller
         $data = $request->validated();
 
         $data = $request->except('image');
+        // dd($new->image);
         if ($request->hasFile('image')) {
-            Storage::delete($new->image); //unlink
+            if ($new->image) {
+                Storage::delete($new->image); //unlink
+            }
             $data['image'] = $this->uploadImage($request, "news");
         }
         // dd($data);

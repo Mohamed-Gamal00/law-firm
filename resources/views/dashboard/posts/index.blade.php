@@ -52,7 +52,7 @@
                                                 <th>الصورة</th>
                                                 <th>العنوان</th>
                                                 <th>القسم</th>
-                                                <th>المحتوي</th>
+                                                <th>الوصف</th>
                                                 <th>اعدادات</th>
                                             </tr>
                                         </thead>
@@ -67,7 +67,7 @@
                                                     <td class="align-middle">{{ $post->title }}</td>
                                                     <td class="align-middle">
                                                         {{ $post->category ? $post->category->name : 'No Category' }}</td>
-                                                    <td class="align-middle">{{ $post->content }}</td>
+                                                    <td class="align-middle">{{ $post->desc }}</td>
                                                     <td class="align-middle">
 
                                                         <form action="{{ route('posts.destroy', $post->id) }}"
@@ -76,7 +76,7 @@
                                                             @method('DELETE')
 
 
-                                                            <div class="col-sm-6 col-md-6 mg-t-10 mg-md-t-0 p-0">
+                                                            <div class="col-sm-6 col-md-12 mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit"
                                                                     href="{{ route('posts.edit', $post->id) }}"
                                                                     title="تعديل">

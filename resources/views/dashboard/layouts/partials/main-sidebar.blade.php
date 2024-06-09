@@ -38,11 +38,37 @@
 
                 {{-- الاخبار --}}
                 <li>
-                    <a href="{{ route('news.index') }}" class="waves-effect">
-                        <i class="mdi mdi-newspaper"></i>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-form-dropdown"></i>
                         <span>الاخبار</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        {{-- الاخبار --}}
+                        <li>
+                            <a href="{{ route('news.index') }}" class="waves-effect">
+                                <i class="mdi mdi-newspaper"></i>
+                                <span>الاخبار</span>
+                            </a>
+                        </li>
+
+                        {{-- الصور --}}
+                        <li>
+                            <a href="{{ route('photos.index') }}" class="waves-effect">
+                                <i class="mdi mdi-camera-image"></i>
+                                <span>الصور</span>
+                            </a>
+                        </li>
+
+                        {{-- الفيديوهات --}}
+                        <li>
+                            <a href="{{ route('videos.index') }}" class="waves-effect">
+                                <i class="mdi mdi-file-video"></i>
+                                <span>الفيديوهات</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
 
 
                 {{-- الخدمات --}}
@@ -53,27 +79,26 @@
                     </a>
                 </li>
 
+                {{-- طلبات التواصل --}}
+                <li>
+                    <a href="{{ route('contacts.index') }}" class="waves-effect">
+                        <i class="mdi mdi-medal"></i>
+                        <span>طلبات التواصل</span>
+                    </a>
+                </li>
+                {{-- طلبات الحجز --}}
+
+                <li>
+                    <a href="{{ route('booking.index') }}" class="waves-effect">
+                        <i class="mdi mdi-medal"></i>
+                        <span>طلبات الحجز</span>
+                    </a>
+                </li>
                 {{-- الفريق --}}
                 <li>
                     <a href="{{ route('teams.index') }}" class="waves-effect">
                         <i class="mdi mdi-account-group"></i>
                         <span>الفريق</span>
-                    </a>
-                </li>
-
-                {{-- الصور --}}
-                <li>
-                    <a href="{{ route('photos.index') }}" class="waves-effect">
-                        <i class="mdi mdi-camera-image"></i>
-                        <span>الصور</span>
-                    </a>
-                </li>
-
-                {{-- الفيديوهات --}}
-                <li>
-                    <a href="{{ route('videos.index') }}" class="waves-effect">
-                        <i class="mdi mdi-file-video"></i>
-                        <span>الفيديوهات</span>
                     </a>
                 </li>
 

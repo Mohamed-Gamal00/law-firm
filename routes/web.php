@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BookingController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\customizesite\AboutContentController;
 use App\Http\Controllers\Dashboard\customizesite\BlogContentController;
 use App\Http\Controllers\Dashboard\customizesite\CustomerOpinionController;
@@ -51,6 +53,13 @@ Route::middleware('auth')->group(function () {
         Route::resource('photos', PhotoController::class);
         Route::resource('videos', VideoController::class);
         // Route::resource('settings', SettingController::class);
+
+        Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
+        Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
+        Route::get('all-booking', [BookingController::class, 'index'])->name('booking.index');
+        Route::delete('all-booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::get('settings/edit', [SettingController::class, 'edit'])->name('settings.edit');
         Route::put('settings', [SettingController::class, 'update'])->name('settings.update');

@@ -78,7 +78,10 @@
             </div>
         </div> --}}
 
+        {{-- featuers --}}
+
         <div id="features-container">
+            <label class="mb-0 mt-4" for="">المميزات</label>
             @if ($about && $about->features)
                 @foreach (json_decode($about->features, true) as $index => $feature)
                     <div class="feature-input">
@@ -90,6 +93,7 @@
                             </div>
                         </div>
                         <textarea name="feature_content[]" class="form-control feature-content" placeholder="Enter content for this feature">{{ json_decode($about->feature_content, true)[$index] ?? '' }}</textarea>
+
                     </div>
                 @endforeach
             @else
@@ -156,7 +160,7 @@
 
 
 
-        <div class="form-group">
+        <div class="form-group mt-4">
             <label for="video_link">Video Link</label>
             <input type="url" class="form-control" id="video_link" name="video_link"
                 value="{{ old('video_link', $about->video_link ?? '') }}">
@@ -194,6 +198,7 @@
             </div>
         @enderror
 
+        {{-- points --}}
         <div class="form-group">
             <label for="points">Points</label>
             <div id="points-container">

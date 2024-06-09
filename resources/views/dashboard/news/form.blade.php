@@ -50,21 +50,41 @@
 </script>
 
 
-{{-- content --}}
+{{-- desc --}}
 <div class="form-group">
-    <label for="floatingTextarea2">المحتوي</label>
+    <label for="floatingTextarea2">الوصف</label>
     <div class="form-floating">
-        <textarea class="form-control" name="content" id="floatingTextarea2"style="height: 100px">{{ $new->content }}</textarea>
+        <textarea class="form-control" name="desc" id="floatingTextarea2"style="height: 100px">{{ old('desc' , $new->desc )}}</textarea>
     </div>
 
-    @error('content')
+    @error('desc')
         <div>
             <p class="text-danger">
-                {{ $errors->first('content') }}
+                {{ $errors->first('desc') }}
             </p>
         </div>
     @enderror
 </div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <textarea id="elm1" name="content">{{ $new->content }}</textarea>
+
+            </div>
+            @error('content')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('content') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+
 
 
 
