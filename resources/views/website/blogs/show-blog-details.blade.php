@@ -125,7 +125,7 @@
                     @if (count($blogs) > 0)
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="latest-news">
-                                <h4>أخر الأخبار</h4>
+                                <h4>أخر المقالات</h4>
                                 @forelse ($blogs as $blog)
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="col-md-3 col-sm-3 col-xs-12">

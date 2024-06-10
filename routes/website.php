@@ -6,7 +6,7 @@ use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Website\GalleryController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\NewsController;
-use App\Http\Controllers\website\BlogController;
+use App\Http\Controllers\Website\BlogPostController;
 use App\Http\Controllers\Website\ServiceController;
 use App\Http\Controllers\Website\TeamController;
 use App\Http\Controllers\Website\VideoGalleryController;
@@ -30,8 +30,8 @@ Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.s
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-Route::get('/blogs/blog/{id}', [BlogController::class, 'show'])->name('show-blog-details');
+Route::get('/blogs', [BlogPostController::class, 'index'])->name('blogs');
+Route::get('/blogs/blog/{id}', [BlogPostController::class, 'show'])->name('show-blog-details');
 
 Route::get('/media-center/news', [NewsController::class, 'index'])->name('news');
 Route::get('/media-center/news/show-new-details/{id}', [NewsController::class, 'show'])->name('show-new-details');
