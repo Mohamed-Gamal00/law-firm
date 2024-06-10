@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="pic">
-                            <img src="{{ asset('website/images/about.png') }}" alt="">
+                            <img src="{{ asset('storage/'.$abotContent->image) }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -123,16 +123,16 @@
                 @forelse ($services as $service)
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="one">
-                            <img src="{{ asset('storage/'.$service->image) }}" alt="">
-                            <h4>{{$service->title}}</h4>
-                            <p>{{$service->desc}}
+                            <img src="{{ asset('storage/' . $service->image) }}" alt="">
+                            <h4>{{ $service->title }}</h4>
+                            <p>{{ $service->desc }}
                             </p>
-                            <a href="{{route('service',$service->id)}}"> <i class="fa fa-plus"></i> أعرف اكثر</a>
+                            <a href="{{ route('service', $service->id) }}"> <i class="fa fa-plus"></i> أعرف اكثر</a>
                         </div>
                     </div>
 
                 @empty
-                services is empty
+                    services is empty
                 @endforelse
 
             </div>
@@ -144,15 +144,8 @@
             <div class="row">
                 <div class="col-md-7 col-sm-12 col-xs-12">
                     <div class="content">
-                        <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h4>
-                        <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                            المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
-                            النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-                            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                            حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                            التطبيق.
-                        </p>
+                        <h3>{{ $abotContent->title }}</h3>
+                        <p>{{ $abotContent->content }}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="one">
                                 <div class="icon">
@@ -290,10 +283,10 @@
                         <h5>{{ $mediaCenterContent->title }}</h5>
                         <p>{{ $mediaCenterContent->content }}</p>
                         <ul>
-                            <li><a href="{{route('news')}}">الاخبار</a></li>
-                            <li><a href="{{route('galleries')}}">معرض صور </a></li>
-                            <li><a href="{{route('videos')}}">معرض فيديو</a></li>
-                            <li><a href="{{route('blogs')}}">مدونة</a></li>
+                            <li><a href="{{ route('news') }}">الاخبار</a></li>
+                            <li><a href="{{ route('galleries') }}">معرض صور </a></li>
+                            <li><a href="{{ route('videos') }}">معرض فيديو</a></li>
+                            <li><a href="{{ route('blogs') }}">مدونة</a></li>
                         </ul>
                     </div>
                 </div>

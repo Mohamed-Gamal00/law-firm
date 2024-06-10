@@ -29,29 +29,20 @@
                         </p>
                     </div>
                 </div>
-                @if ($abotContent->features && $abotContent->feature_content)
-                    @php
-                        $features = json_decode($abotContent->features, true);
-                        $featureContents = json_decode($abotContent->feature_content, true);
-                    @endphp
+                @if (count($aboutFeatuers))
+                    @foreach ($aboutFeatuers as $feature)
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="one">
+                                <img src="{{ asset('storage/'.$feature->image) }}" alt="">
 
-                    @if (count($features) > 1 && count($features) === count($featureContents))
-                        @foreach ($features as $index => $feature)
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="one">
-                                    <img src="{{ asset('website/images/about-1.png') }}" alt="">
+                                <h4>
+                                    {{ $feature->title }}
+                                </h4>
 
-                                    <h4>
-                                        {{ $feature }}
-                                    </h4>
-
-                                    <p>{{ $featureContents[$index] }}</p>
-                                </div>
+                                <p>{{ $feature->desc }}</p>
                             </div>
-                        @endforeach
-                    @else
-                        No feature
-                    @endif
+                        </div>
+                    @endforeach
                 @else
                     No feature
                 @endif

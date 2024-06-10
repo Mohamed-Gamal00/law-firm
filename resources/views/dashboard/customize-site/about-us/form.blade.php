@@ -1,5 +1,43 @@
 <div>
     <div class="row">
+
+
+        {{-- image --}}
+        <div class="form-group my-3">
+            <label for="exampleInputEmail1">الصورة</label>
+            <div class="custom-file">
+                <input class="custom-file-input" name="image" id="customFile" type="file" onchange="previewImage(this)">
+                <label class="custom-file-label" for="customFile" id="customFileLabel">اختارالصورة</label>
+            </div>
+            <div class="mt-1" id="imagePreview">
+
+                @if ($about->image)
+                    <img style="object-fit: cover" src="{{ asset("storage/$about->image") }}" width="60"
+                        height="60" alt="img">
+                @endif
+            </div>
+
+            @error('image')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('image') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+        <script>
+            function previewImage(input) {
+                var file = input.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var imgPreview = document.getElementById('imagePreview');
+                    imgPreview.innerHTML = '<img src="' + e.target.result + '" width="60" height="60" alt="preview">';
+                }
+                reader.readAsDataURL(file);
+            }
+        </script>
+
+
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title"
@@ -80,7 +118,7 @@
 
         {{-- featuers --}}
 
-        <div id="features-container">
+        {{-- <div id="features-container">
             <label class="mb-0 mt-4" for="">المميزات</label>
             @if ($about && $about->features)
                 @foreach (json_decode($about->features, true) as $index => $feature)
@@ -156,7 +194,7 @@
                     featureInput.remove();
                 }
             });
-        </script>
+        </script> --}}
 
 
 
@@ -200,7 +238,7 @@
 
         {{-- points --}}
         <div class="form-group">
-            <label for="points">Points</label>
+            <label for="points">video Points</label>
             <div id="points-container">
                 @if ($about && $about->points)
                     @foreach (json_decode($about->points, true) as $index => $point)

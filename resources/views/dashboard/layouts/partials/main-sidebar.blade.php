@@ -113,11 +113,35 @@
                                 <i class="mdi mdi-application"></i>
                                 <span>الصفحة الرئيسية</span>
                             </a></li>
-                        <li> <a href="{{ route('about-us.index') }}" class="waves-effect">
-                                <i class="mdi mdi-information"></i>
+
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="mdi mdi-form-dropdown"></i>
                                 <span>من نحن</span>
                             </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                {{-- المميزات --}}
+                                <li>
+                                    <a href="{{ route('featuers.index') }}" class="waves-effect">
+                                        <i class="mdi mdi-newspaper"></i>
+                                        <span>المميزات</span>
+                                    </a>
+                                </li>
+
+                                {{-- المحتوي --}}
+                                <li>
+                                    <a href="{{ route('about-us.index') }}" class="waves-effect">
+                                        <i class="mdi mdi-camera-image"></i>
+                                        <span>المحتوي</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
+
+
+
                         <li> <a href="{{ route('media-center.index') }}" class="waves-effect">
                                 <i class="mdi mdi-information"></i>
                                 <span>المركز الاعلامي</span>

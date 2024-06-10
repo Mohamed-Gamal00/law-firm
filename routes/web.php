@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\BookingController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\customizesite\AboutContentController;
+use App\Http\Controllers\Dashboard\customizesite\AboutFeatureController;
 use App\Http\Controllers\Dashboard\customizesite\BlogContentController;
 use App\Http\Controllers\Dashboard\customizesite\CustomerOpinionController;
 use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
@@ -71,6 +72,8 @@ Route::middleware('auth')->group(function () {
         /* about-us */
         Route::get('about-us', [AboutContentController::class, 'index'])->name('about-us.index');
         Route::put('about-us', [AboutContentController::class, 'update'])->name('about-us.update');
+
+        Route::resource('featuers', AboutFeatureController::class);
 
         /* media center */
         Route::get('media-center', [MediacenterContentController::class, 'index'])->name('media-center.index');
