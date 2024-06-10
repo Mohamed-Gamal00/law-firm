@@ -30,24 +30,24 @@
         <div class="blogs-section" style="padding: 50px 0px">
             <div class="container">
                 <div class="row">
-                    @forelse ($posts as $post)
+                    @forelse ($blogs as $blog)
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="one-blog">
-                                <img src="{{ asset('storage/' . $post->image) }}" alt="">
+                                <img src="{{ asset('storage/'. $blog->image) }}" alt="">
                                 <ul>
-                                    <li><i class="fa fa-calendar-alt"></i> {{ $post->created_at }}</li>
+                                    <li><i class="fa fa-calendar-alt"></i> {{ $blog->created_at }}</li>
                                     <li><i class="fa fa-tag"></i>
-                                        {{ $post->category ? $post->category->name : 'No Category' }}</li>
+                                        {{ $blog->category ? $blog->category->name : 'No Category' }}</li>
                                 </ul>
-                                <h4>{{ $post->title }}</h4>
-                                <p>{!! substr($post->desc, 0, 100) !!}
+                                <h4>{{ $blog->title }}</h4>
+                                <p>{!! substr($blog->desc, 0, 100) !!}
                                 </p>
-                                <a href="{{ route('show-blog-details', $post->id) }}">اعرف أكثر <i
+                                <a href="{{ route('show-blog-details', $blog->id) }}">اعرف أكثر <i
                                         class="fa fa-plus"></i></a>
                             </div>
                         </div>
                     @empty
-                        <p>empty posts</p>
+                        <p>empty blogs</p>
                     @endforelse
 
                 </div>

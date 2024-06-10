@@ -38,10 +38,13 @@
                         </div>
                         <ul class="social">
                             <li>مشاركة : </li>
-                            <li><a href=""><i class="fab fa-twitter"></i></a>
-                            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                            <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
+                            <li>
+                                <a href="{{ $shareLinks['twitter'] }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li><a href="{{ $shareLinks['facebook'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ $shareLinks['telegram'] }}"><i class="fab fa-telegram"></i></a></li>
+                            <li><a href="{{ $shareLinks['linkedin'] }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $shareLinks['whatsapp'] }}"><i class="fab fa-whatsapp"></i></a></li>
                         </ul>
                         <hr>
 
@@ -89,18 +92,18 @@
                             </ul>
                         </div>
                     </div>
-                    @if (count($news)>0)
+                    @if (count($news) > 0)
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="latest-news">
                                 <h4>أخر الأخبار</h4>
                                 @forelse ($news as $new)
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="col-md-3 col-sm-3 col-xs-12">
-                                            <img src="{{asset('storage/'.$new->image)}}" alt="">
+                                            <img src="{{ asset('storage/' . $new->image) }}" alt="">
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="con">
-                                                <a href="{{route('show-new-details',$new->id)}}">{{ $new->title }}</a>
+                                                <a href="{{ route('show-new-details', $new->id) }}">{{ $new->title }}</a>
                                                 <p>{{ $new->desc }}
                                                 </p>
                                             </div>

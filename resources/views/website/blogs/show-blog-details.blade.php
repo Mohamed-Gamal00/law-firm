@@ -31,7 +31,7 @@
                     <img src="{{ asset('website/images/page.png') }}" alt="">
                 </div>
                 <div class="con">
-                    <h3>{{ $post->title }}</h3>
+                    <h3>{{ $blog->title }}</h3>
                     <ul>
                         <li> الرئيسية </li>
                         <li> / </li>
@@ -51,9 +51,9 @@
                 <div class="col-md-8 col-sm-12 col-xs-12">
                     <div class="content">
                         <img src="images/blog-2.png" alt="">
-                        <h4>{{ $post->title }}</h4>
+                        <h4>{{ $blog->title }}</h4>
                         <div>
-                            {!! $post->content !!}
+                            {!! $blog->content !!}
                         </div>
                         {{-- <ul class="social">
                             <li>مشاركة : </li>
@@ -122,19 +122,19 @@
                             </ul>
                         </div>
                     </div>
-                    @if (count($posts) > 0)
+                    @if (count($blogs) > 0)
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="latest-news">
                                 <h4>أخر الأخبار</h4>
-                                @forelse ($posts as $post)
+                                @forelse ($blogs as $blog)
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="col-md-3 col-sm-3 col-xs-12">
-                                            <img src="{{ asset('storage/' . $post->image) }}" alt="">
+                                            <img src="{{ asset('storage/' . $blog->image) }}" alt="">
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="con">
-                                                <a href="">{{ $post->title }}</a>
-                                                <p>{{ $post->desc }}
+                                                <a href="{{route('show-blog-details',$blog->id)}}">{{ $blog->title }}</a>
+                                                <p>{{ $blog->desc }}
                                                 </p>
                                             </div>
 
@@ -156,7 +156,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-12 col-xs-12">
-                    <h4>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h4>
+                    <h4>{{$settings->booking_title}}</h4>
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <ul>

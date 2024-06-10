@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\NewsArticle;
 use App\Models\Service;
+use Jorenvh\Share\ShareFacade;
 
 class NewsController extends Controller
 {
@@ -20,8 +21,17 @@ class NewsController extends Controller
         $previous = NewsArticle::where('id', '<', $id)->orderBy('id', 'desc')->first();
         $services = Service::all() ?? new Service();
         $news = NewsArticle::select('*')->take(6)->get() ?? new NewsArticle ;
+        $shareLinks = ShareFacade::page(
+            url()->current(),
+            $new->title
+        )
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->getRawLinks();
 
-
-        return view('website.news.show-new-details', compact('new', 'next', 'previous','services', 'news'));
+        return view('website.news.show-new-details', compact('new', 'next', 'previous','services', 'news', 'shareLinks'));
     }
 }

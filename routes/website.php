@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\Website\AboutController;
-use App\Http\Controllers\website\BlogController;
 use App\Http\Controllers\Website\BookingController;
 use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Website\GalleryController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\NewsController;
-use App\Http\Controllers\website\PostController;
+use App\Http\Controllers\website\BlogController;
 use App\Http\Controllers\Website\ServiceController;
 use App\Http\Controllers\Website\TeamController;
 use App\Http\Controllers\Website\VideoGalleryController;

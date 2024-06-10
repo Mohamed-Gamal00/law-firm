@@ -13,21 +13,22 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(10) ?? new Post();
+        $blogs = Post::paginate(10) ?? new Post();
         $settings = Setting::first() ?? new Setting();
-        return view('website.posts.index', compact('posts', 'settings'));
+        return view('website.blogs.index', compact('blogs', 'settings'));
     }
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $blog = Post::findOrFail($id);
+        $settings = Setting::first() ?? new Setting();
         $next = Post::select('id', 'title')->where('id', '>', $id)->orderBy('id')->first();
         $previous = Post::where('id', '<', $id)->orderBy('id', 'desc')->first();
         $services = Service::all() ?? new Service();
-        $posts = Post::select('*')->take(6)->get() ?? new Post;
+        $blogs = Post::select('*')->take(6)->get() ?? new Post;
 
         $shareLinks = ShareFacade::page(
             url()->current(),
-            $post->title
+            $blog->title
         )
             ->facebook()
             ->twitter()
@@ -38,6 +39,6 @@ class BlogController extends Controller
 
 
         // dd($shareLinks['facebook']);
-        return view('website.posts.show-post-details', compact('post', 'next', 'previous', 'services', 'posts', 'shareLinks'));
+        return view('website.blogs.show-blog-details', compact('blog', 'next', 'previous', 'services', 'blogs', 'shareLinks', 'settings'));
     }
 }
