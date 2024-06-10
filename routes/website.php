@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\Website\AboutController;
+use App\Http\Controllers\website\BlogController;
 use App\Http\Controllers\Website\BookingController;
 use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Website\GalleryController;
@@ -31,8 +31,8 @@ Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.s
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
-Route::get('/blogs', [PostController::class, 'index'])->name('blogs');
-Route::get('/blogs/blog/{id}', [PostController::class, 'show'])->name('show-blog-details');
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+Route::get('/blogs/blog/{id}', [BlogController::class, 'show'])->name('show-blog-details');
 
 Route::get('/media-center/news', [NewsController::class, 'index'])->name('news');
 Route::get('/media-center/news/show-new-details/{id}', [NewsController::class, 'show'])->name('show-new-details');
