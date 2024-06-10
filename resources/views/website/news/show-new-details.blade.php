@@ -93,15 +93,15 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="latest-news">
                                 <h4>أخر الأخبار</h4>
-                                @forelse ($news as $post)
+                                @forelse ($news as $new)
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="col-md-3 col-sm-3 col-xs-12">
-                                            <img src="{{asset('storage/'.$post->image)}}" alt="">
+                                            <img src="{{asset('storage/'.$new->image)}}" alt="">
                                         </div>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="con">
-                                                <a href="">{{ $post->title }}</a>
-                                                <p>{{ $post->desc }}
+                                                <a href="{{route('show-new-details',$new->id)}}">{{ $new->title }}</a>
+                                                <p>{{ $new->desc }}
                                                 </p>
                                             </div>
 
