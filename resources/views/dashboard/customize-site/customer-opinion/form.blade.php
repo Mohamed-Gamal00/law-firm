@@ -172,4 +172,4 @@
     }
 </script>
 
-<button type="submit" class="btn btn-primary my-3">Submit</button>
+<button type="submit" class="btn btn-primary my-3">حفظ</button>

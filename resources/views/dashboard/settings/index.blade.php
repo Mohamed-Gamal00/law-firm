@@ -10,7 +10,8 @@
                 <h6 class="page-title">الاعدادت</h6>
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">الرئيسية</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('teams.index') }}">الاعدادات</a></li>
+                    <li class="breadcrumb-item"><a href="">تخصيص الموقع</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('settings.index') }}">الاعدادات</a></li>
                 </ol>
             </div>
         </div>

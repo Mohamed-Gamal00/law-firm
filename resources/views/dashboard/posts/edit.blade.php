@@ -24,7 +24,9 @@
         {{-- @include('dashboard.layouts.partials.error_validation') --}}
         <form method="POST" action="{{ route('posts.update',$post->id,$categories) }}" enctype="multipart/form-data">
             @method('PUT')
-            @include('dashboard.posts.form')
+            @include('dashboard.posts.form',[
+                        'button_lable' => 'تعديل'
+                    ])
         </form>
     </div>
 @endsection

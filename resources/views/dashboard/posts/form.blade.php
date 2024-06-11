@@ -15,7 +15,7 @@
 </div>
 
 <div class="form-group">
-    <label for="categories">Category</label>
+    <label for="categories">القسم</label>
     <select name="category_id" id="category" class="form-control from-select">
         <option value=""></option>
 
@@ -87,25 +87,6 @@
         </div>
     @enderror
 </div>
-{{-- content --}}
-{{-- <div class="form-group">
-    <label for="floatingTextarea2">المحتوي</label>
-    <div class="form-floating">
-        <textarea class="form-control" name="content" id="floatingTextarea2"
-            style="height: 100px">
-        {{ $post->content }}
-        </textarea>
-    </div>
-
-    @error('content')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('content') }}
-            </p>
-        </div>
-    @enderror
-</div> --}}
-
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -126,4 +107,4 @@
 
 
 
-<button type="submit" class="btn btn-primary mt-3">Submit</button>
+<button type="submit" class="btn btn-primary mt-3">{{ $button_lable ?? 'انشاء' }}</button>

@@ -39,7 +39,7 @@
 
 
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">العنوان</label>
             <input type="text" class="form-control" id="title" name="title"
                 value="{{ old('title', $about->title ?? '') }}">
         </div>
@@ -52,8 +52,8 @@
         @enderror
 
         <div class="form-group">
-            <label for="content">Content</label>
-            <textarea class="form-control" id="content" name="content">{{ old('content', $about->content ?? '') }}</textarea>
+            <label for="content">المحتوي</label>
+            <textarea class="form-control" style="height: 100px" id="content" name="content">{{ old('content', $about->content ?? '') }}</textarea>
         </div>
         @error('content')
             <div>
@@ -199,7 +199,7 @@
 
 
         <div class="form-group mt-4">
-            <label for="video_link">Video Link</label>
+            <label for="video_link">لينك الفديو</label>
             <input type="url" class="form-control" id="video_link" name="video_link"
                 value="{{ old('video_link', $about->video_link ?? '') }}">
         </div>
@@ -212,7 +212,7 @@
         @enderror
 
         <div class="form-group">
-            <label for="video_title">Video Title</label>
+            <label for="video_title">عنوان الفيديو</label>
             <input type="text" class="form-control" id="video_title" name="video_title"
                 value="{{ old('video_title', $about->video_title ?? '') }}">
         </div>
@@ -225,7 +225,7 @@
         @enderror
 
         <div class="form-group">
-            <label for="video_content">Video Content</label>
+            <label for="video_content">وصف الفيديو</label>
             <textarea class="form-control" id="video_content" name="video_content">{{ old('video_content', $about->video_content ?? '') }}</textarea>
         </div>
         @error('video_content')
@@ -238,7 +238,7 @@
 
         {{-- points --}}
         <div class="form-group">
-            <label for="points">video Points</label>
+            <label for="points" class="mt-3 mb-0">المميزات</label>
             <div id="points-container">
                 @if ($about && $about->points)
                     @foreach (json_decode($about->points, true) as $index => $point)
@@ -308,7 +308,7 @@
     <div class="row">
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="team_work">Team Work</label>
+                <label for="team_work">فريق العمل</label>
                 <input type="text" class="form-control" id="team_work" name="team_work"
                     value="{{ old('team_work', $about->team_work ?? '') }}">
             </div>
@@ -322,7 +322,7 @@
         </div>
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="happy_clients">Happy Clients</label>
+                <label for="happy_clients">عمــلاء سـعــــداء</label>
                 <input type="text" class="form-control" id="happy_clients" name="happy_clients"
                     value="{{ old('happy_clients', $about->happy_clients ?? '') }}">
             </div>
@@ -336,7 +336,7 @@
         </div>
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="successful_lawsuits">Successful Lawsuits</label>
+                <label for="successful_lawsuits">قضــايا و دعــاوي ناجـحـة</label>
                 <input type="text" class="form-control" id="successful_lawsuits" name="successful_lawsuits"
                     value="{{ old('successful_lawsuits', $about->successful_lawsuits ?? '') }}">
             </div>
@@ -350,7 +350,7 @@
         </div>
         <div class="col-12 col-md-6">
             <div class="form-group">
-                <label for="successful_consultations">Successful Consultations</label>
+                <label for="successful_consultations">استـشـارات قـانـونــية نـاجحة</label>
                 <input type="text" class="form-control" id="successful_consultations"
                     name="successful_consultations"
                     value="{{ old('successful_consultations', $about->successful_consultations ?? '') }}">
@@ -367,4 +367,4 @@
 </div>
 
 
-<button type="submit" class="btn btn-primary mt-3">Submit</button>
+<button type="submit" class="btn btn-primary mt-3">حفظ</button>
