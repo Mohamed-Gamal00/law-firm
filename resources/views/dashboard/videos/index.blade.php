@@ -60,15 +60,11 @@
                                                     <th scope="row " class="align-middle">{{ $loop->iteration }}</th>
                                                     {{-- <td class="align-middle">{{ $video->title?$video->title:'no title exist' }}</td> --}}
                                                     <td class="align-middle">
-                                                        {{-- <img
-                                                            style="object-fit: cover;border-radius: 8px;"
-                                                            src="{{ asset("storage/$video->image") }}" width="60"
-                                                            height="60" alt="img"> --}}
-                                                        <video width="200" height="100" controls>
-                                                            <source src="{{ asset('storage/' . $video->video_path) }}"
-                                                                type="video/mp4">
-                                                        </video>
-
+                                                        <iframe width="250px" height="130px"
+                                                            src="{{ $video->video_path }}"
+                                                            title="YouTube video player" frameborder="0"
+                                                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            allowfullscreen></iframe>
                                                     </td>
                                                     <td class="align-middle">
 

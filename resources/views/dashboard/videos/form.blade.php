@@ -15,7 +15,7 @@
 
 
 {{-- video --}}
-<div class="form-group my-3">
+{{-- <div class="form-group my-3">
     <label for="exampleInputEmail1">الفيديو</label>
     <div class="custom-file">
         <input class="custom-file-input" name="video_path" id="customFile" type="file" onchange="previewVideo(this)">
@@ -56,7 +56,20 @@
             reader.readAsDataURL(file);
         }
     }
-</script>
+</script> --}}
 
+{{-- video --}}
+<div class="form-group">
+    <label for="exampleInputEmail1">لينك الفيديو</label>
+    <input type="text" name="video_path" class="form-control" value="{{ old('video_path', $video->video_path) }}"
+        id="exampleInputEmail1" aria-describedby="emailHelp">
 
+    @error('video_path')
+        <div>
+            <p class="text-danger">
+                {{ $errors->first('video_path') }}
+            </p>
+        </div>
+    @enderror
+</div>
 <button type="submit" class="btn btn-primary my-3">Submit</button>

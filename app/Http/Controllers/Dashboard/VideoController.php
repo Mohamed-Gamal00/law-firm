@@ -33,15 +33,18 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'video_path' => 'required|file|mimetypes:video/mp4|max:50240', // 10MB max size
+        // $request->validate([
+        //     'video_path' => 'required|file|mimetypes:video/mp4|max:50240',
+        // ]);
+        $data =$request->validate([
+            'video_path' => 'required|url',
         ]);
 
-        $data = $request->except('video_path');
+        // $data = $request->except('video_path');
 
-        if ($request->hasFile('video_path')) {
-            $data['video_path'] = $this->uploadVideo($request, "videos");
-        }
+        // if ($request->hasFile('video_path')) {
+        //     $data['video_path'] = $this->uploadVideo($request, "videos");
+        // }
 
         // dd($data);
 
@@ -74,20 +77,20 @@ class VideoController extends Controller
     {
         $video = Video::findOrFail($id);
 
-        $request->validate([
-            'video_path' => 'file|mimetypes:video/mp4|max:50240', // 10MB max size
+        $data =$request->validate([
+            'video_path' => 'url', // 10MB max size
         ]);
 
-        $data = $request->except('video_path');
+        // $data = $request->except('video_path');
         // dd($data);
-        if ($request->hasFile('video_path')) {
-            $oldImage = $video->video_path;
-            if ($oldImage) {
-                Storage::delete($video->video_path);
-            }
+        // if ($request->hasFile('video_path')) {
+        //     $oldImage = $video->video_path;
+        //     if ($oldImage) {
+        //         Storage::delete($video->video_path);
+        //     }
 
-            $data['video_path'] = $this->uploadVideo($request, "videos");
-        }
+        //     $data['video_path'] = $this->uploadVideo($request, "videos");
+        // }
 
         // dd($data);
         $video->update($data);
@@ -100,20 +103,20 @@ class VideoController extends Controller
     public function destroy(string $id)
     {
         $video = Video::findOrFail($id);
-        if ($video->video_path) {
-            Storage::delete($video->video_path); //unlink
-        }
+        // if ($video->video_path) {
+        //     Storage::delete($video->video_path); //unlink
+        // }
         // dd($video);
         $video->delete();
         return Redirect::route('videos.index')->with('success', 'video Deleted success');
     }
 
-    protected function uploadVideo(Request $request, $vidoefolder)
-    {
-        if (!$request->hasFile('video_path')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$vidoefolder", $request->video_path);
-        return $filePath;
-    }
+    // protected function uploadVideo(Request $request, $vidoefolder)
+    // {
+    //     if (!$request->hasFile('video_path')) {
+    //         return null;
+    //     }
+    //     $filePath = Storage::putFile("$vidoefolder", $request->video_path);
+    //     return $filePath;
+    // }
 }
