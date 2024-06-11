@@ -495,7 +495,7 @@ body[data-layout=horizontal] .footer {
     font-family: "Cairo", sans-serif !important;
     color: var(--bs-sidebar-menu-item-color);
     position: relative;
-    font-size: 15.7px;
+    font-size: 17.7px;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
 }

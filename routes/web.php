@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
 use App\Http\Controllers\Dashboard\customizesite\MediacenterContentController;
 use App\Http\Controllers\Dashboard\customizesite\ServiceContentController;
 use App\Http\Controllers\Dashboard\customizesite\TeamContentController;
+use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\PhotoController;
 use App\Http\Controllers\Dashboard\PostController;
@@ -36,9 +37,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/admin', function () {
-    return view('dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/admin', function () {
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/admin', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {

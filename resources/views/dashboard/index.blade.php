@@ -27,20 +27,17 @@
                             <div class="float-start mini-stat-img me-4">
                                 <img src="assets/images/services-icon/01.png" alt="">
                             </div>
-                            <h5 class="font-size-16 text-uppercase text-white-50">Orders</h5>
-                            <h4 class="fw-medium font-size-24">1,685 <i class="mdi mdi-arrow-up text-success ms-2"></i>
+                            <h5 class="font-size-16 text-uppercase text-white-50">طلبات التواصل</h5>
+                            <h4 class="fw-medium font-size-24">{{ count($contacts) }}
                             </h4>
-                            <div class="mini-stat-label bg-success">
-                                <p class="mb-0">+ 12%</p>
-                            </div>
                         </div>
                         <div class="pt-2">
                             <div class="float-end">
-                                <a href="#" class="text-white-50"><i
+                                <a href="{{ route('contacts.index') }}" class="text-white-50"><i
                                         class="mdi mdi-arrow-right h5 text-white-50"></i></a>
                             </div>
 
-                            <p class="text-white-50 mb-0 mt-1">Since last month</p>
+                            <p class="text-white-50 mb-0 mt-1">اخر طلب تواصل {{ $timeSinceCreation }} </p>
                         </div>
                     </div>
                 </div>
@@ -52,20 +49,17 @@
                             <div class="float-start mini-stat-img me-4">
                                 <img src="assets/images/services-icon/02.png" alt="">
                             </div>
-                            <h5 class="font-size-16 text-uppercase text-white-50">Revenue</h5>
-                            <h4 class="fw-medium font-size-24">52,368 <i class="mdi mdi-arrow-down text-danger ms-2"></i>
+                            <h5 class="font-size-16 text-uppercase text-white-50">الحجوزات</h5>
+                            <h4 class="fw-medium font-size-24">{{ count($booking) }}
                             </h4>
-                            <div class="mini-stat-label bg-danger">
-                                <p class="mb-0">- 28%</p>
-                            </div>
                         </div>
                         <div class="pt-2">
                             <div class="float-end">
-                                <a href="#" class="text-white-50"><i
+                                <a href="{{ route('booking.index') }}" class="text-white-50"><i
                                         class="mdi mdi-arrow-right h5 text-white-50"></i></a>
                             </div>
 
-                            <p class="text-white-50 mb-0 mt-1">Since last month</p>
+                            <p class="text-white-50 mb-0 mt-1">اخر طلب حجز {{ $bookingTimeSinceCreation }}</p>
                         </div>
                     </div>
                 </div>
@@ -77,20 +71,17 @@
                             <div class="float-start mini-stat-img me-4">
                                 <img src="assets/images/services-icon/03.png" alt="">
                             </div>
-                            <h5 class="font-size-16 text-uppercase text-white-50">Average Price</h5>
-                            <h4 class="fw-medium font-size-24">15.8 <i class="mdi mdi-arrow-up text-success ms-2"></i>
+                            <h5 class="font-size-16 text-uppercase text-white-50">المدونات</h5>
+                            <h4 class="fw-medium font-size-24">{{ count($posts) }}
                             </h4>
-                            <div class="mini-stat-label bg-info">
-                                <p class="mb-0"> 00%</p>
-                            </div>
                         </div>
                         <div class="pt-2">
                             <div class="float-end">
-                                <a href="#" class="text-white-50"><i
+                                <a href="{{ route('posts.index') }}" class="text-white-50"><i
                                         class="mdi mdi-arrow-right h5 text-white-50"></i></a>
                             </div>
 
-                            <p class="text-white-50 mb-0 mt-1">Since last month</p>
+                            <p class="text-white-50 mb-0 mt-1"> اخر مقالة تم رفعها {{ $postTimeSinceCreation }}</p>
                         </div>
                     </div>
                 </div>
@@ -102,32 +93,24 @@
                             <div class="float-start mini-stat-img me-4">
                                 <img src="assets/images/services-icon/04.png" alt="">
                             </div>
-                            <h5 class="font-size-16 text-uppercase text-white-50">Product Sold</h5>
-                            <h4 class="fw-medium font-size-24">2436 <i class="mdi mdi-arrow-up text-success ms-2"></i>
+                            <h5 class="font-size-16 text-uppercase text-white-50">فريق العمل</h5>
+                            <h4 class="fw-medium font-size-24">{{ count($teams) }}
                             </h4>
-                            <div class="mini-stat-label bg-warning">
-                                <p class="mb-0">+ 84%</p>
-                            </div>
                         </div>
                         <div class="pt-2">
                             <div class="float-end">
-                                <a href="#" class="text-white-50"><i
+                                <a href="{{ route('teams.index') }}" class="text-white-50"><i
                                         class="mdi mdi-arrow-right h5 text-white-50"></i></a>
                             </div>
 
-                            <p class="text-white-50 mb-0 mt-1">Since last month</p>
+                            <p class="text-white-50 mb-0 mt-1"> اخر عضو تم اضافته {{ $memberTimeSinceCreation }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- end row -->
-        
-
-
-
     </div> <!-- container-fluid -->
-
     <!-- End Page-content -->
 @endsection
 @section('js')

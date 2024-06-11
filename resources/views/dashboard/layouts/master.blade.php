@@ -14,7 +14,9 @@
     @include('dashboard.layouts.partials.head')
 </head>
 
-<body class="main-body app sidebar-mini">
+{{-- <body data-bs-theme="dark" class="main-body app sidebar-mini "> --}}
+
+<body data-sidebar="dark" class="main-body app sidebar-mini ">
     <!-- Loader -->
     <div id="global-loader">
         <!-- /Loader -->
@@ -25,7 +27,15 @@
             <div class="page-content">
                 <div class="container-fluid">
 
-                    @include('dashboard.layouts.partials.main-header')
+                    @php
+                        use App\Models\Setting;
+                        $settings = Setting::first();
+
+                        if (!$settings) {
+                            $settings = new Setting();
+                        }
+                    @endphp
+                    @include('dashboard.layouts.partials.main-header',['settings' => $settings])
                     <!-- container -->
                     <div class="container-fluid">
                         @yield('page-header')
