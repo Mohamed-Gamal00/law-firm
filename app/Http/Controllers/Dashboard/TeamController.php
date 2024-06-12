@@ -42,7 +42,7 @@ class TeamController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "teams");
+            $data['image'] = $this->uploadImage($request, "teams",'image');
         }
         // dd($data);
         Team::create($data);
@@ -79,7 +79,10 @@ class TeamController extends Controller
             $data['certifications'] = json_encode($request->certifications);
         }
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "teams");
+            if($team->image) {
+                Storage::delete($team->image);
+            }
+            $data['image'] = $this->uploadImage($request, "teams", 'image');
         }
         $team->update($data);
         return Redirect::route('teams.index')->with('success', 'تم تعديل العضو بنجاح');
@@ -99,12 +102,12 @@ class TeamController extends Controller
         return Redirect::route('teams.index')->with('success', 'member Deleted success');
     }
 
-    protected function uploadImage(Request $request, $imageFolder)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$imageFolder", $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request, $imageFolder)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     $filePath = Storage::putFile("$imageFolder", $request->image);
+    //     return $filePath;
+    // }
 }

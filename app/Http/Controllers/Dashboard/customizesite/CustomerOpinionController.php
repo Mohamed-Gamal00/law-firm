@@ -16,11 +16,7 @@ class CustomerOpinionController extends Controller
     public function index()
     {
         $data = CustomerOpinion::paginate(10);
-        // $imageId = CustomerOpinion::whereNotNull('image_section')->pluck('id')->first();
         $image_section = CustomerOpinion::select('image_section', 'id')->whereNotNull('image_section')->first();
-        // dd($image_section);
-
-        // $image_section = CustomerOpinion::whereNotNull('image_section')->pluck('image_section')[0] ?? new CustomerOpinion;
         return view('dashboard.customize-site.customer-opinion.index', compact('data', 'image_section'));
     }
     /**
@@ -29,7 +25,14 @@ class CustomerOpinionController extends Controller
     public function create()
     {
         $data = new CustomerOpinion();
-        return view('dashboard.customize-site.customer-opinion.create', compact('data'));
+        $image_section = CustomerOpinion::whereNotNull('image_section')->exists();
+        if ($image_section == true) {
+            $image_section = false;
+            // dd($image_section);
+        } else {
+            $image_section = true;
+        }
+        return view('dashboard.customize-site.customer-opinion.create', compact('data', 'image_section'));
     }
 
     /**
@@ -51,16 +54,11 @@ class CustomerOpinionController extends Controller
 
         // Handle image upload for 'image'
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request->file('image'), "public");
+            $data['image'] = $this->uploadImage($request, "public", 'image');
         }
         // Handle image upload for 'image_section'
         if ($request->hasFile('image_section')) {
-            // Check if image_section already exists
-            if (CustomerOpinion::whereNotNull('image_section')->exists()) {
-                return redirect()->route('customer-opinion.create')->with('image_section', 'Image section already exists.');
-            } else {
-                $data['image_section'] = $this->uploadImage($request->file('image_section'), "public");
-            }
+            $data['image_section'] = $this->uploadImage($request, "public", 'image_section');
         }
         // dd($data);
 
@@ -82,7 +80,18 @@ class CustomerOpinionController extends Controller
     public function edit(string $id)
     {
         $data = CustomerOpinion::findOrFail($id);
-        return view('dashboard.customize-site.customer-opinion.edit', compact('data'));
+        $image_section = $data->image_section;
+        if ($image_section == null) {
+            $image_section = false;
+        }
+        $image_whereNotNull = CustomerOpinion::whereNotNull('image_section')->exists();
+        // dd($image_whereNotNull);
+        if ($image_whereNotNull == false) {
+            // dd($image_whereNotNull);
+            $image_section = true;
+        }
+
+        return view('dashboard.customize-site.customer-opinion.edit', compact('data', 'image_section'));
     }
 
     /**
@@ -100,16 +109,21 @@ class CustomerOpinionController extends Controller
         ]);
 
         // Separate image and image_section from other data
-        $data = $request->except(['image', 'image_section']);
-
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request->file('image'), "public");
+            if ($opinion->image) {
+                Storage::delete($opinion->image);
+            }
+            $data['image'] = $this->uploadImage($request, "public", 'image');
         }
 
-        // Handle image_section update without blocking the update
         if ($request->hasFile('image_section')) {
-            $data['image_section'] = $this->uploadImage($request->file('image_section'), "public");
+            if ($opinion->image_section) {
+                Storage::delete($opinion->image_section);
+            }
+            $data['image_section'] = $this->uploadImage($request, "public", 'image_section');
         }
+        // dd($data);
+
         $opinion->update($data);
         return Redirect::route('customer-opinion.index')->with('success', 'تم التعديل ب نجاح');
     }
@@ -125,16 +139,5 @@ class CustomerOpinionController extends Controller
         }
         $opinion->delete();
         return Redirect::route('customer-opinion.index')->with('success', 'opinion Deleted success');
-    }
-
-
-    /*
-    $image = request file
-    $disk = place which saved in this cace will saved in public folder
-    */
-    private function uploadImage($image, $disk)
-    {
-        $path = $image->store($disk);
-        return $path;
     }
 }

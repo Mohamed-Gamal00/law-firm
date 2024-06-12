@@ -75,7 +75,7 @@
                                                             @method('DELETE')
 
 
-                                                            <div class="col-sm-6 col-md-6 mg-t-10 mg-md-t-0 p-0">
+                                                            <div class="col-sm-6 d-flex col-md-12 mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit"
                                                                     href="{{ route('services.edit', $service->id) }}"
                                                                     title="تعديل">

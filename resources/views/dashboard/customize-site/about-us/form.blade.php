@@ -237,72 +237,70 @@
         @enderror
 
         {{-- points --}}
-        <div class="form-group">
-            <label for="points" class="mt-3 mb-0">المميزات</label>
-            <div id="points-container">
-                @if ($about && $about->points)
-                    @foreach (json_decode($about->points, true) as $index => $point)
-                        <div class="point-input">
-                            <div class="input-group my-2">
-                                <input type="text" name="points[]" class="form-control point"
-                                    value="{{ $point }}" placeholder="Enter a point">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-danger delete-point">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="point-input">
-                        <div class="input-group mb-2">
-                            <input type="text" name="points[]" class="form-control point" value=""
-                                placeholder="Enter a point">
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-danger delete-point">Delete</button>
-                            </div>
+<div class="form-group">
+    <label for="points" class="mt-3 mb-0">المميزات</label>
+    <div id="points-container">
+        @if ($about && $about->points)
+            @foreach (json_decode($about->points, true) as $index => $point)
+                <div class="point-input">
+                    <div class="input-group my-2">
+                        <input type="text" name="points[]" class="form-control point" value="{{ $point }}" placeholder="Enter a point" required>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-danger delete-point">حذف</button>
                         </div>
                     </div>
-                @endif
+                </div>
+            @endforeach
+        @else
+            <div class="point-input">
+                <div class="input-group mb-2">
+                    <input type="text" name="points[]" class="form-control point" value="" placeholder="Enter a point" required>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger delete-point">حذف</button>
+                    </div>
+                </div>
             </div>
-            <button type="button" id="add-point" class="btn btn-primary mt-3">Add Point</button>
-        </div>
+        @endif
+    </div>
+    <button type="button" id="add-point" class="btn btn-primary mt-3">اضف ميزة</button>
+</div>
 
-        <script>
-            document.getElementById('add-point').addEventListener('click', function() {
-                var container = document.getElementById('points-container');
-                var newPointInput = document.createElement('div');
-                newPointInput.className = 'point-input';
-                newPointInput.innerHTML = `
+<script>
+    document.getElementById('add-point').addEventListener('click', function() {
+        var container = document.getElementById('points-container');
+        var newPointInput = document.createElement('div');
+        newPointInput.className = 'point-input';
+        newPointInput.innerHTML = `
             <div class="input-group my-2">
-                <input type="text" name="points[]" class="form-control point" value="" placeholder="Enter a point">
+                <input type="text" name="points[]" class="form-control point" value="" placeholder="Enter a point" required>
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-danger delete-point">Delete</button>
+                    <button type="button" class="btn btn-danger delete-point">حذف</button>
                 </div>
             </div>`;
-                container.appendChild(newPointInput);
+        container.appendChild(newPointInput);
 
-                // Add event listener to the new delete button
-                newPointInput.querySelector('.delete-point').addEventListener('click', function() {
-                    newPointInput.remove();
-                });
-            });
+        // Add event listener to the new delete button
+        newPointInput.querySelector('.delete-point').addEventListener('click', function() {
+            newPointInput.remove();
+        });
+    });
 
-            // Add event listener to existing delete buttons
-            document.querySelectorAll('.delete-point').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    button.closest('.point-input').remove();
-                });
-            });
-        </script>
+    // Add event listener to existing delete buttons
+    document.querySelectorAll('.delete-point').forEach(function(button) {
+        button.addEventListener('click', function() {
+            button.closest('.point-input').remove();
+        });
+    });
+</script>
 
+@error('points')
+    <div>
+        <p class="text-danger">
+            {{ $errors->first('points') }}
+        </p>
+    </div>
+@enderror
 
-        @error('points')
-            <div>
-                <p class="text-danger">
-                    {{ $errors->first('points') }}
-                </p>
-            </div>
-        @enderror
     </div>
 
     <div class="row">

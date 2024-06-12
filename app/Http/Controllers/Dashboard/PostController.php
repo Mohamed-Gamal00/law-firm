@@ -41,7 +41,7 @@ class PostController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request);
+            $data['image'] = $this->uploadImage($request, 'posts', 'image');
         }
         Post::create($data);
         return Redirect::route('posts.index')->with('success', 'تم انشاء عنصر جديد');
@@ -76,7 +76,10 @@ class PostController extends Controller
         $data = $request->except('image');
         // dd($data);
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request);
+            if ($post->image) {
+                Storage::delete($post->image);
+            }
+            $data['image'] = $this->uploadImage($request, 'posts', 'image');
         }
         $post->update($data);
         return Redirect::route('posts.index')->with('success', 'تم التعديل ب نجاح');
@@ -88,18 +91,20 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         $post = Post::findOrFail($id);
-        Storage::delete($post->image); //unlink
+        if ($post->image) {
+            Storage::delete($post->image); //unlink
+        }
         $post->delete();
         return Redirect::route('posts.index')->with('success', 'Post Deleted success');
     }
 
-    protected function uploadImage(Request $request)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        // $filePath = $request->file('image')->store('posts', 'public');
-        $filePath = Storage::putFile('posts', $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     // $filePath = $request->file('image')->store('posts', 'public');
+    //     $filePath = Storage::putFile('posts', $request->image);
+    //     return $filePath;
+    // }
 }

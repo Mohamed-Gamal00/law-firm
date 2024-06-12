@@ -81,18 +81,6 @@ class VideoController extends Controller
             'video_path' => 'url', // 10MB max size
         ]);
 
-        // $data = $request->except('video_path');
-        // dd($data);
-        // if ($request->hasFile('video_path')) {
-        //     $oldImage = $video->video_path;
-        //     if ($oldImage) {
-        //         Storage::delete($video->video_path);
-        //     }
-
-        //     $data['video_path'] = $this->uploadVideo($request, "videos");
-        // }
-
-        // dd($data);
         $video->update($data);
         return Redirect::route('videos.index')->with('success', 'تم تعديل عنصر بنجاح');
     }

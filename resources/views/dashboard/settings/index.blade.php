@@ -20,6 +20,13 @@
     <!-- /breadcrumb -->
 @endsection
 @section('content')
+    <div class="card-header pb-0 mb-3">
+        @if (Session::has('success'))
+            <div class="alert alert-success text-center" role="alert">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+    </div>
     <div class="my-5">
         <form method="POST" action="{{ route('settings.update') }}" enctype="multipart/form-data">
             @method('PUT')

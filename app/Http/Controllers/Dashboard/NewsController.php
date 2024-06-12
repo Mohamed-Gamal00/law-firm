@@ -38,7 +38,7 @@ class NewsController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "news");
+            $data['image'] = $this->uploadImage($request, "news",'image');
         }
         NewsArticle::create($data);
         return Redirect::route('news.index')->with('success', 'تم انشاء عنصر جديد');
@@ -75,7 +75,7 @@ class NewsController extends Controller
             if ($new->image) {
                 Storage::delete($new->image); //unlink
             }
-            $data['image'] = $this->uploadImage($request, "news");
+            $data['image'] = $this->uploadImage($request, "news",'image');
         }
         // dd($data);
         $new->update($data);
@@ -95,13 +95,13 @@ class NewsController extends Controller
         return Redirect::route('news.index')->with('success', 'new Deleted success');
     }
 
-    protected function uploadImage(Request $request, $imageFolder)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        // $filePath = $request->file('image')->store('posts', 'public');
-        $filePath = Storage::putFile("$imageFolder", $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request, $imageFolder)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     // $filePath = $request->file('image')->store('posts', 'public');
+    //     $filePath = Storage::putFile("$imageFolder", $request->image);
+    //     return $filePath;
+    // }
 }

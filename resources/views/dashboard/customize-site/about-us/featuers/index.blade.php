@@ -75,7 +75,7 @@
 
 
                                                             {{-- <div class="col-sm-8 col-md-4 mg-t-10 mg-md-t-0 p-0"> --}}
-                                                            <div class="col-sm-8 col-md-4 mg-t-10 mg-md-t-0 p-0">
+                                                            <div class="col-sm-8 col-md-12 d-flex mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit"
                                                                     href="{{ route('featuers.edit', $item->id) }}"
                                                                     title="تعديل">

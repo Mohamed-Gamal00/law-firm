@@ -35,7 +35,7 @@ class AboutFeatureController extends Controller
     {
         $rules = [
             'title' => ' required|string|max:255',
-            'desc' => 'nullable|string|max:255',
+            'desc' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
         $this->validate($request, $rules);
@@ -43,7 +43,7 @@ class AboutFeatureController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "public");
+            $data['image'] = $this->uploadImage($request, "public", 'image');
         }
 
         // dd($data);
@@ -78,7 +78,7 @@ class AboutFeatureController extends Controller
         // Validate the request data
         $request->validate([
             'title' => ' required|string|max:255',
-            'desc' => 'nullable|string|max:255',
+            'desc' => 'nullable|string|',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -86,7 +86,10 @@ class AboutFeatureController extends Controller
 
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "public");
+            if($featuers->image) {
+                Storage::delete($featuers->image);
+            }
+            $data['image'] = $this->uploadImage($request, "public", 'image');
         }
         // dd($data);
 
@@ -108,13 +111,13 @@ class AboutFeatureController extends Controller
         $featuer->delete();
         return Redirect::route('featuers.index')->with('success', 'featuer Deleted success');
     }
-    protected function uploadImage(Request $request, $imagefolder)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$imagefolder", $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request, $imagefolder)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     $filePath = Storage::putFile("$imagefolder", $request->image);
+    //     return $filePath;
+    // }
 
 }

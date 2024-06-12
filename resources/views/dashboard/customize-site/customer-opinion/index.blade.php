@@ -51,15 +51,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         @if ($image_section)
-
                                             <div class="form-group my-3">
                                                 <label for="image_section">صورة الرئيسية </label>
                                                 <div class="mt-1" id="imagePreview2">
 
                                                     @if ($image_section)
                                                         <img style="object-fit: cover"
-                                                            src="{{ asset("storage/$image_section->image_section") }}" width="100"
-                                                            height="100" alt="image_section">
+                                                            src="{{ asset("storage/$image_section->image_section") }}"
+                                                            width="100" height="100" alt="image_section">
                                                     @endif
                                                 </div>
                                                 @error('image_section')
@@ -84,12 +83,16 @@
                                             </script>
                                         @endif
 
-                                        <div>
-                                            <a class="btn btn-secondary btn-sm edit"
-                                                href="{{ route('customer-opinion.edit', $image_section->id) }}" title="تعديل">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                        </div>
+                                        @if ($image_section)
+                                            <div>
+                                                <a class="btn btn-secondary btn-sm edit"
+                                                    href="{{ route('customer-opinion.edit', $image_section->id) }}"
+                                                    title="تعديل">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
+                                            </div>
+                                        @endif
+
                                     </div>
                                 </div>
 
@@ -131,7 +134,7 @@
                                                             @method('DELETE')
 
 
-                                                            <div class="col-sm-8 col-md-6 mg-t-10 mg-md-t-0 p-0">
+                                                            <div class="col-sm-8 col-md-12 d-flex mg-t-10 mg-md-t-0 p-0">
                                                                 <a class="btn btn-secondary btn-sm edit"
                                                                     href="{{ route('customer-opinion.edit', $item->id) }}"
                                                                     title="تعديل">

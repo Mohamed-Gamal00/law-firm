@@ -245,4 +245,4 @@
     @enderror
 </div>
 
-<button type="submit" class="btn btn-primary mt-3">Submit</button>
+<button type="submit" class="btn btn-primary mt-3">حفظ</button>

@@ -52,7 +52,7 @@ class PhotoController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "photos");
+            $data['image'] = $this->uploadImage($request, "photos", 'image');
         }
 
         // dd($data);
@@ -100,12 +100,10 @@ class PhotoController extends Controller
         $data = $request->except('image');
         // dd($data);
         if ($request->hasFile('image')) {
-            $oldImage = $photo->image;
-            if ($oldImage) {
+            if ($photo->image) {
                 Storage::delete($photo->image);
             }
-
-            $data['image'] = $this->uploadImage($request, "photos");
+            $data['image'] = $this->uploadImage($request, "photos",'image');
         }
 
         // dd($data);
@@ -127,12 +125,12 @@ class PhotoController extends Controller
         return Redirect::route('photos.index')->with('success', 'photo Deleted success');
     }
 
-    protected function uploadImage(Request $request, $imagefolder)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$imagefolder", $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request, $imagefolder)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     $filePath = Storage::putFile("$imagefolder", $request->image);
+    //     return $filePath;
+    // }
 }

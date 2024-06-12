@@ -1,29 +1,31 @@
 @csrf
 
 {{-- image_section --}}
-<div class="form-group my-3">
-    <label for="image_section">صورة الرئيسية </label>
-    <div class="custom-file">
+@if ($image_section == true)
+    <div class="form-group my-3">
+        <label for="image_section">صورة الرئيسية </label>
+        <div class="custom-file">
 
-        <input class="custom-file-input" name="image_section" id="customFile2" type="file"
-            onchange="previewImage(this, 'imagePreview2')">
-        <label class="custom-file-label" for="customFile2" id="customFileLabel2">صورة الرئيسية </label>
-    </div>
-    <div class="mt-1" id="imagePreview2">
-
-        @if ($data->image_section)
-            <img style="object-fit: cover" src="{{ asset("storage/$data->image_section") }}" width="60"
-                height="60" alt="image_section">
-        @endif
-    </div>
-    @error('image_section')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('image_section') }}
-            </p>
+            <input class="custom-file-input" name="image_section" id="customFile2" type="file"
+                onchange="previewImage(this, 'imagePreview2')">
+            <label class="custom-file-label" for="customFile2" id="customFileLabel2">صورة الرئيسية </label>
         </div>
-    @enderror
-</div>
+        <div class="mt-1" id="imagePreview2">
+
+            @if ($data->image_section)
+                <img style="object-fit: cover" src="{{ asset("storage/$data->image_section") }}" width="60"
+                    height="60" alt="image_section">
+            @endif
+        </div>
+        @error('image_section')
+            <div>
+                <p class="text-danger">
+                    {{ $errors->first('image_section') }}
+                </p>
+            </div>
+        @enderror
+    </div>
+@endif
 
 
 {{-- name --}}
@@ -136,29 +138,6 @@
         </div>
     @enderror
 </div>
-{{-- <div class="form-group my-3">
-    <label for="image1">صورة العميل 1</label>
-    <div class="custom-file">
-        <input class="custom-file-input" name="image1" id="customFile1" type="file"
-            onchange="previewImage(this, 'imagePreview1')">
-        <label class="custom-file-label" for="customFile1" id="customFileLabel1">صورة العميل 1</label>
-    </div>
-    <div class="mt-1" id="imagePreview1">
-        @if ($data->image1)
-            <img style="object-fit: cover" src="{{ asset("storage/$data->image1") }}" width="60" height="60"
-                alt="img1">
-        @endif
-    </div>
-    @error('image1')
-        <div>
-            <p class="text-danger">
-                {{ $errors->first('image1') }}
-            </p>
-        </div>
-    @enderror
-</div> --}}
-
-
 
 <script>
     function previewImage(input, previewId) {

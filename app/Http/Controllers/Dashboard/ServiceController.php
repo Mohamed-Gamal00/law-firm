@@ -41,7 +41,7 @@ class ServiceController extends Controller
         $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadImage($request, "services");
+            $data['image'] = $this->uploadImage($request, "services",'image');
         }
         // dd($data);
         Service::create($data);
@@ -76,11 +76,10 @@ class ServiceController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $oldImage = $service->image;
-            if ($oldImage) {
+            if ($service->image) {
                 Storage::delete($service->image);
             }
-            $data['image'] = $this->uploadImage($request, "services");
+            $data['image'] = $this->uploadImage($request, "services",'image');
         }
         // dd($data);
         $service->update($data);
@@ -101,12 +100,12 @@ class ServiceController extends Controller
         return Redirect::route('services.index')->with('success', 'serivce Deleted success');
     }
 
-    protected function uploadImage(Request $request, $imageFolder)
-    {
-        if (!$request->hasFile('image')) {
-            return null;
-        }
-        $filePath = Storage::putFile("$imageFolder", $request->image);
-        return $filePath;
-    }
+    // protected function uploadImage(Request $request, $imageFolder)
+    // {
+    //     if (!$request->hasFile('image')) {
+    //         return null;
+    //     }
+    //     $filePath = Storage::putFile("$imageFolder", $request->image);
+    //     return $filePath;
+    // }
 }
