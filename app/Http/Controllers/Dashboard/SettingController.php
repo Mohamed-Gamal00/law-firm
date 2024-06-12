@@ -36,6 +36,7 @@ class SettingController extends Controller
             $data['logo'] = $this->uploadImage($request, 'settings', 'logo');
         }
 
+        // dd($data);
         $settings->update($data);
         return redirect()->route('settings.index')->with('success', 'Settings updated successfully.');
     }

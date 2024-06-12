@@ -1,5 +1,60 @@
 @csrf
 
+
+<div class="row mb-5">
+    {{-- meta_title --}}
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputEmail1">meta_title</label>
+            <input type="text" name="meta_title" class="form-control"
+                value="{{ old('meta_title', $settings->meta_title ?? '') }}" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+
+            @error('meta_title')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('meta_title') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div>
+
+    {{-- meta_description --}}
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="exampleInputEmail1">meta_description</label>
+            <input type="text" name="meta_description" class="form-control"
+                value="{{ old('meta_description', $settings->meta_description ?? '') }}" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+
+            @error('meta_description')
+                <div>
+                    <p class="text-danger">
+                        {{ $errors->first('meta_description') }}
+                    </p>
+                </div>
+            @enderror
+        </div>
+    </div>
+
+    {{-- meta_keywords --}}
+    <div class="form-group">
+        <label for="floatingTextarea2">meta_keywords</label>
+        <div class="form-floating">
+            <textarea class="form-control" name="meta_keywords" id="floatingTextarea2"style="height: 100px">{{ $settings->meta_keywords }}</textarea>
+        </div>
+
+        @error('meta_keywords ')
+            <div>
+                <p class="text-danger">
+                    {{ $errors->first('meta_keywords') }}
+                </p>
+            </div>
+        @enderror
+    </div>
+</div>
+
 <div class="row">
     {{-- وصف حجز موعد --}}
     <div class="col-md-6">
@@ -41,8 +96,9 @@
 
         <div class="form-group">
             <label for="exampleInputphone1">رقم الهاتف</label>
-            <input type="text" name="phone" class="form-control" value="{{ old('phone', $settings->phone ?? '') }}"
-                id="exampleInputphone1" aria-describedby="phoneHelp">
+            <input type="text" name="phone" class="form-control"
+                value="{{ old('phone', $settings->phone ?? '') }}" id="exampleInputphone1"
+                aria-describedby="phoneHelp">
 
             @error('phone')
                 <div>
@@ -75,8 +131,9 @@
 
         <div class="form-group">
             <label for="exampleInputfax1">العنوان</label>
-            <input type="text" name="address" class="form-control" value="{{ old('address', $settings->address ?? '') }}"
-                id="exampleInputaddress1" aria-describedby="addressHelp">
+            <input type="text" name="address" class="form-control"
+                value="{{ old('address', $settings->address ?? '') }}" id="exampleInputaddress1"
+                aria-describedby="addressHelp">
 
             @error('address')
                 <div>
@@ -182,7 +239,8 @@
 <div class="form-group my-4">
     <label for="exampleInputEmail1">اللوجو</label>
     <div class="custom-file">
-        <input class="custom-file-input" name="logo" id="customFile" type="file" onchange="previewImage(this)">
+        <input class="custom-file-input" name="logo" id="customFile" type="file"
+            onchange="previewImage(this)">
         <label class="custom-file-label" for="customFile" id="customFileLabel">اختارالصورة</label>
     </div>
     <div class="mt-1" id="imagePreview">

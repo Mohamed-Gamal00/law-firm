@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('title')
-    مكتب صهيب علي امام | اتصل بنا
+    {{$settings->meta_title}} | اتصل بنا
 @endsection
 @section('css')
 @endsection

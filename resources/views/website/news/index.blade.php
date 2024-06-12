@@ -1,6 +1,10 @@
 @extends('website.layouts.master')
 @section('title')
-    مكتب صهيب علي امام | الأخبار
+    @php
+        use App\Models\Setting;
+        $settings = Setting::first() ?? new Setting();
+    @endphp
+    {{$settings->meta_title}} | الأخبار
 @endsection
 @section('css')
 @endsection

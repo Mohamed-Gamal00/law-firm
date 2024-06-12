@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('title')
-    مكتب صهيب علي امام | الرئيسية
+    {{$settings->meta_title}} | الرئيسية
 @endsection
 @section('css')
 @endsection

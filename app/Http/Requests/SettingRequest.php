@@ -35,6 +35,9 @@ class SettingRequest extends FormRequest
             'footer_content_right' => 'nullable|string',
             'footer_content_left' => 'nullable|string',
             'booking_title' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:255',
+            'meta_keywords' => 'nullable|string|max:255',
         ];
     }
 }

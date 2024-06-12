@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('title')
-    مكتب صهيب علي امام | حجز موعد
+    {{$settings->meta_title}} | حجز موعد
 @endsection
 @section('css')
 @endsection

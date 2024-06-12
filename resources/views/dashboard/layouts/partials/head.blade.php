@@ -1,6 +1,11 @@
-
 <meta charset="utf-8">
-<title>لوحة تحكم | مكتب صهيب علي الامام</title>
+@php
+    use App\Models\Setting;
+    $settings = Setting::select('meta_title')->first() ?? new Setting();
+
+@endphp
+<title>{{ $settings->meta_title }}</title>
+<title>لوحة تحكم |{{ $settings->meta_title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
 <meta content="Themesbrand" name="author">

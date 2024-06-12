@@ -29,10 +29,6 @@ return new class extends Migration
             $table->string('media_center_title')->nullable();
             $table->text('media_center_content')->nullable();
             $table->string('media_center_video_link')->nullable();
-
-            $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->text('meta_keywords')->nullable();
             $table->timestamps();
         });
     }
