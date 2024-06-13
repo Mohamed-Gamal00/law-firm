@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\customizesite\MainpageContentController;
 use App\Http\Controllers\Dashboard\customizesite\MediacenterContentController;
 use App\Http\Controllers\Dashboard\customizesite\ServiceContentController;
 use App\Http\Controllers\Dashboard\customizesite\TeamContentController;
+use App\Http\Controllers\Dashboard\EmailController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Dashboard\PhotoController;
@@ -59,6 +60,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
         Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
+        Route::get('emails', [EmailController::class, 'index'])->name('emails.index');
+        Route::delete('emails/{email}', [EmailController::class, 'destroy'])->name('emails.destroy');
 
         Route::get('all-booking', [BookingController::class, 'index'])->name('booking.index');
         Route::delete('all-booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');

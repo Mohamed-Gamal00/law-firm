@@ -94,6 +94,13 @@
                         <span>طلبات الحجز</span>
                     </a>
                 </li>
+                {{-- الايميلات--}}
+                <li>
+                    <a href="{{ route('emails.index') }}" class="waves-effect">
+                        <i class="mdi mdi-medal"></i>
+                        <span>الايميلات</span>
+                    </a>
+                </li>
                 {{-- الفريق --}}
                 <li>
                     <a href="{{ route('teams.index') }}" class="waves-effect">

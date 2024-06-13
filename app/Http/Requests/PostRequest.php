@@ -24,7 +24,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'category_id' => 'nullable|exists:categories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image',
             'content' => 'required|string',
         ];
     }
@@ -33,16 +33,14 @@ class PostRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'The title is required.',
-            'title.string' => 'The title must be a string.',
-            'title.max' => 'The title may not be greater than 255 characters.',
-            'category_id.required' => 'The category is required.',
-            'category_id.exists' => 'The selected category is invalid.',
-            'image.image' => 'The image must be an image file.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image may not be greater than 2048 kilobytes.',
-            'content.required' => 'The content is required.',
-            'content.string' => 'The content must be a string.',
+            'title.required' => 'العنوان مطلوب.',
+            'title.string' => 'يجب أن يكون العنوان نصيًا.',
+            'title.max' => 'لا يمكن أن يكون العنوان أكبر من 255 حرفًا.',
+            'category_id.required' => 'القسم مطلوب.',
+            'category_id.exists' => 'القسم المحدد غير صالح.',
+            'image.image' => 'يجب أن تكون الصورة ملف صورة.',
+            'content.required' => 'المحتوى مطلوب.',
+            'content.string' => 'يجب أن يكون المحتوى نصيًا.',
         ];
     }
 }

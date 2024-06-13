@@ -25,10 +25,18 @@ class MediacenterContentController extends Controller
         $rules = [
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'video_link' => 'required|url|max:255',
+            'video_link' => 'required|url',
+        ];
+        $messages = [
+            'title.required' => 'العنوان مطلوب.',
+            'title.string' => 'يجب أن يكون العنوان نصًا.',
+            'content.required' => 'المحتوى مطلوب.',
+            'content.string' => 'يجب أن يكون المحتوى نصًا.',
+            'video_link.required' => 'رابط الفيديو مطلوب.',
+            'video_link.url' => 'يجب أن يكون رابط الفيديو عنوان URL صحيحًا.',
         ];
 
-        $validatedData = $request->validate($rules);
+        $validatedData = $request->validate($rules, $messages);
 
         // Fill the model with the validated data
         $data->fill($validatedData);

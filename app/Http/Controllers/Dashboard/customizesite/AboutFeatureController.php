@@ -36,9 +36,14 @@ class AboutFeatureController extends Controller
         $rules = [
             'title' => ' required|string|max:255',
             'desc' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image',
         ];
-        $this->validate($request, $rules);
+        $messages = [
+            'title.required' => 'العنوان مطلوب.',
+            'desc.string' => 'يجب أن يكون الوصف نصًا.',
+            'image.image' => 'يجب أن يكون الملف ملف صورة.',
+        ];
+        $this->validate($request, $rules, $messages);
 
         $data = $request->except('image');
 

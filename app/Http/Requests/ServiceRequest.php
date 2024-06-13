@@ -23,7 +23,7 @@ class ServiceRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image',
             'content' => 'required|string',
             'service_desc' => 'nullable|string',
         ];
@@ -33,14 +33,12 @@ class ServiceRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'The title is required.',
-            'title.string' => 'The title must be a string.',
-            'title.max' => 'The title may not be greater than 255 characters.',
-            'image.image' => 'The image must be an image file.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image may not be greater than 2048 kilobytes.',
-            'content.required' => 'The content is required.',
-            'content.string' => 'The content must be a string.',
+            'title.required' => 'العنوان مطلوب.',
+            'title.string' => 'يجب أن يكون العنوان نصًا.',
+            'title.max' => 'لا يجب أن يتجاوز العنوان 255 حرفًا.',
+            'image.image' => 'يجب أن تكون الصورة ملف صورة.',
+            'content.required' => 'المحتوى مطلوب.',
+            'content.string' => 'يجب أن يكون المحتوى نصًا.',
         ];
     }
 }

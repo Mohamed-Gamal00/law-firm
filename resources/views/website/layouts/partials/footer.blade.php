@@ -75,9 +75,24 @@
                     <h6>
                         {{ $settings->footer_content_left }}
                     </h6>
-                    <form action="">
+                    {{-- <form action="">
                         <input type="text">
                         <button> <i class="fa fa-paper-plane"></i> </button>
+                    </form> --}}
+
+                    <form action="{{ route('email.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="ادخل البريد الالكتروني" required>
+                            <button> <i class="fa fa-paper-plane"></i> </button>
+                            @error('email')
+                                <div>
+                                    <p class="text-danger">
+                                        {{ $errors->first('email') }}
+                                    </p>
+                                </div>
+                            @enderror
+                        </div>
                     </form>
 
 
@@ -96,7 +111,7 @@
 </div>
 <!--=====================================================================-->
 <div id="myButtons" class="buttons">
-    <a href="{{route('booking')}}" id="reservation"> <i class="fa fa-ticket-alt"></i>حجز موعد </a>
+    <a href="{{ route('booking') }}" id="reservation"> <i class="fa fa-ticket-alt"></i>حجز موعد </a>
     <a href="{{ $settings->whatsapp }}" id="whatsapp"> <i class="fab fa-whatsapp"></i>واتساب</a>
     <a href="tel:{{ $settings->phone }}" id="call"> <i class="fa fa-phone"></i>اتصال </a>
 </div>

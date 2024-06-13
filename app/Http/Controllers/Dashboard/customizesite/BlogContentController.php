@@ -26,9 +26,15 @@ class BlogContentController extends Controller
             'title' => 'nullable|string|max:255',
             'content' => 'required|string',
         ];
+        $messages = [
+            'title.string' => 'يجب أن يكون العنوان نصًا.',
+            'title.max' => 'قد لا يزيد العنوان عن 255 حرفًا.',
+            'content.required' => 'المحتوى مطلوب.',
+            'content.string' => 'يجب أن يكون المحتوى نصًا.',
+        ];
         // $this->validate($request, $rules);
 
-        $validatedData = $request->validate($rules);
+        $validatedData = $request->validate($rules, $messages);
 
         $data->fill($validatedData);
 

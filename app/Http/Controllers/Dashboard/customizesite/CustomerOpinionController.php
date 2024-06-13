@@ -41,13 +41,35 @@ class CustomerOpinionController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $data = $request->validate([
+        // $data = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'content' => 'nullable|string',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+        //     'image_section' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+        //     'status' => 'nullable|string',
+        // ]);
+
+
+        $rules = [
             'name' => 'required|string|max:255',
             'content' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
-            'image_section' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+            'image' => 'nullable|image', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
+            'image_section' => 'nullable|image', // Restricting image file types to jpeg, png, jpg, and gif with a maximum size of 2MB
             'status' => 'nullable|string',
-        ]);
+        ];
+        $messages = [
+            'name.required' => 'الاسم مطلوب.',
+            'name.string' => 'يجب أن يكون الاسم نصًا.',
+            'name.max' => 'قد لا يزيد الاسم عن 255 حرفًا.',
+            'content.string' => 'يجب أن يكون المحتوى نصًا.',
+            'image.image' => 'يجب أن يكون الملف صورة.',
+            'image.mimes' => 'يجب أن يكون نوع الملف: jpeg، png، jpg، gif.',
+            'image.max' => 'قد لا يزيد حجم الصورة عن 2048 كيلوبايت.',
+            'image_section.image' => 'يجب أن يكون الملف صورة.',
+            'status.string' => 'يجب أن يكون حالة العنصر نصًا.',
+        ];
+        $this->validate($request, $rules, $messages);
+
 
         // Prepare data for creating CustomerOpinion
         $data = $request->except(['image', 'image_section']);

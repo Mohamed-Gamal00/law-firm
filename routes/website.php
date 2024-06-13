@@ -7,6 +7,7 @@ use App\Http\Controllers\Website\GalleryController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\NewsController;
 use App\Http\Controllers\Website\BlogPostController;
+use App\Http\Controllers\Website\EmailController;
 use App\Http\Controllers\Website\ServiceController;
 use App\Http\Controllers\Website\TeamController;
 use App\Http\Controllers\Website\VideoGalleryController;
@@ -26,6 +27,10 @@ Route::get('/teams/member/{id}', [TeamController::class, 'show'])->name('member'
 
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store');
+
+
+Route::post('/subscribe', [EmailController::class, 'store'])->name('email.store');
+
 
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');

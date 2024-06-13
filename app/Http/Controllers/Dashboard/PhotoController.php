@@ -37,15 +37,13 @@ class PhotoController extends Controller
     {
         $rules = [
             'title' => 'nullable|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image',
         ];
         $message = [
-            'title.required' => 'title is required',
-            'title.string' => 'The title must be a string.',
-            'image.required' => 'file image is required',
-            'image.image' => 'The image must be an image file.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image may not be greater than 2048 kilobytes.',
+            'title.required' => 'الحقل مطلوب',
+            'title.string' => 'يجب أن يكون العنوان نصيًا.',
+            'image.required' => 'الحقلل طلوب',
+            'image.image' => 'الحقل يجب ان يكون صورة',
         ];
         $this->validate($request, $rules, $message);
 
