@@ -23,17 +23,21 @@ class HomeController extends Controller
         $postTimeSinceCreation = $this->handelTimeCreation($lastPost);
 
 
-        $contacts = Contact::select('id')->get() ?? new Contact;
+        $contacts = Contact::select('*')->get() ?? new Contact;
+        $lastContacts = Contact::select('*')->orderByDesc('created_at')->take(5)->get() ?? new Contact;
+
         $lastContact = Contact::orderBy('id', 'desc')->first();
         $timeSinceCreation = $this->handelTimeCreation($lastContact);
 
 
-        $booking = Booking::select('id')->get() ?? new Booking;
+        $booking = Booking::select('*')->get() ?? new Booking;
+        $lastBooks = Booking::select('*')->orderByDesc('created_at')->take(5)->get() ?? new Booking;
+
         $lastBook = Booking::orderBy('id', 'desc')->first();
         $bookingTimeSinceCreation = $this->handelTimeCreation($lastBook);
 
         // dd($mediaCenterContent);
-        return view('dashboard.index', compact('posts', 'postTimeSinceCreation', 'teams', 'memberTimeSinceCreation', 'contacts', 'timeSinceCreation', 'booking', 'bookingTimeSinceCreation'));
+        return view('dashboard.index', compact('posts', 'postTimeSinceCreation', 'teams', 'memberTimeSinceCreation', 'contacts', 'lastContacts', 'timeSinceCreation', 'booking', 'lastBooks', 'bookingTimeSinceCreation'));
     }
 
     protected function handelTimeCreation($lastMember)

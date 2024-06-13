@@ -28,8 +28,10 @@
                                 <img src="assets/images/services-icon/01.png" alt="">
                             </div>
                             <h5 class="font-size-16 text-uppercase text-white-50">طلبات التواصل</h5>
-                            <h4 class="fw-medium font-size-24">{{ count($contacts) }}
-                            </h4>
+                            @if ($contacts)
+                                <h4 class="fw-medium font-size-24">{{ count($contacts) }}
+                                </h4>
+                            @endif
                         </div>
                         <div class="pt-2">
                             <div class="float-end">
@@ -104,6 +106,77 @@
                             </div>
 
                             <p class="text-white-50 mb-0 mt-1"> اخر عضو تم اضافته {{ $memberTimeSinceCreation }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row">
+                {{-- طلبات التواصل --}}
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">أخر طلبات التواصل</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped mg-b-0 text-md-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>الاسم</th>
+                                            <th>الايميل</th>
+                                            <th>الهاتف</th>
+                                            <th>الوصف</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($lastContacts as $contact)
+                                            <tr>
+                                                <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
+                                                <td class="align-middle">{{ $contact->name }}</td>
+                                                <td class="align-middle">{{ $contact->email }}</td>
+                                                <td class="align-middle">{{ $contact->phone }}</td>
+                                                <td class="align-middle">{{ $contact->subject }}</td>
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div><!-- bd -->
+                        </div>
+                    </div>
+                </div>
+                {{-- طلبات الحجز --}}
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">أخر طلبات الحجز</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped mg-b-0 text-md-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>الاسم</th>
+                                            <th>الايميل</th>
+                                            <th>الهاتف</th>
+                                            <th>التاريخ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($lastBooks as $book)
+                                            <tr>
+                                                <th class="align-middle" scope="row">{{ $loop->iteration }}</th>
+                                                <td class="align-middle">{{ $book->name }}</td>
+                                                <td class="align-middle">{{ $book->email }}</td>
+                                                <td class="align-middle">{{ $book->phone }}</td>
+                                                <td class="align-middle">{{ $book->date }}</td>
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div><!-- bd -->
                         </div>
                     </div>
                 </div>
