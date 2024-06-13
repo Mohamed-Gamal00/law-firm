@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('title')
-    {{$settings->meta_title}} | حجز موعد
+    {{ $settings->meta_title }} | حجز موعد
 @endsection
 @section('css')
 @endsection
@@ -105,6 +105,14 @@
                                         </p>
                                     </div>
                                 @enderror
+                            <div style="margin-top: 20px">
+                                {!! NoCaptcha::display() !!}
+                            </div>
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                            @endif
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <textarea name="subject" {{ old('subject') }} id=""></textarea>
@@ -146,4 +154,5 @@
     </div>
 @endsection
 @section('js')
+    {!! NoCaptcha::renderJs() !!}
 @endsection

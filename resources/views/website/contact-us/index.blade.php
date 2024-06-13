@@ -1,6 +1,6 @@
 @extends('website.layouts.master')
 @section('title')
-    {{$settings->meta_title}} | اتصل بنا
+    {{ $settings->meta_title }} | اتصل بنا
 @endsection
 @section('css')
 @endsection
@@ -69,36 +69,46 @@
                         <form action="{{ route('contact.store') }}" method="POST">
                             @csrf
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <label>الاسم</label>
-                                <input type="text" name="name" value="{{ old('name') }}">
-                                @error('name')
-                                    <div>
-                                        <p class="text-danger">
-                                            {{ $errors->first('name') }}
-                                        </p>
-                                    </div>
-                                @enderror
-                                <label>البريد الالكتروني</label>
-                                <input type="email" name="email" {{ old('email') }}>
-                                @error('email')
-                                    <div>
-                                        <p class="text-danger">
-                                            {{ $errors->first('email') }}
-                                        </p>
-                                    </div>
-                                @enderror
-                                <label>رقم الجوال</label>
-                                <input type="text" name="phone" {{ old('phone') }}>
-                                @error('phone')
-                                    <div>
-                                        <p class="text-danger">
-                                            {{ $errors->first('phone') }}
-                                        </p>
-                                    </div>
-                                @enderror
+                                <div>
+                                    <label>الاسم</label>
+                                    <input type="text" name="name" value="{{ old('name') }}">
+                                    @error('name')
+                                        <div>
+                                            <p class="text-danger">
+                                                {{ $errors->first('name') }}
+                                            </p>
+                                        </div>
+                                    @enderror
+                                    <label>البريد الالكتروني</label>
+                                    <input type="email" name="email" value="{{ old('email') }}">
+                                    @error('email')
+                                        <div>
+                                            <p class="text-danger">
+                                                {{ $errors->first('email') }}
+                                            </p>
+                                        </div>
+                                    @enderror
+                                    <label>رقم الجوال</label>
+                                    <input type="text" name="phone" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <div>
+                                            <p class="text-danger">
+                                                {{ $errors->first('phone') }}
+                                            </p>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div style="margin-top: 20px">
+                                    {!! NoCaptcha::display() !!}
+                                </div>
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea name="subject" {{ old('subject') }} id=""></textarea>
+                                <textarea name="subject" value="{{ old('subject') }}" id=""></textarea>
                                 @error('subject')
                                     <div>
                                         <p class="text-danger">
@@ -122,12 +132,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-12 col-xs-12">
-                        <h4>{{$settings->booking_title}}</h4>
+                        <h4>{{ $settings->booking_title }}</h4>
                     </div>
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <ul>
-                            <li><a href="{{route('booking')}}">حجز موعد</a></li>
-                            <li><a href="{{route('contact')}}">اتصل بنا </a></li>
+                            <li><a href="{{ route('booking') }}">حجز موعد</a></li>
+                            <li><a href="{{ route('contact') }}">اتصل بنا </a></li>
 
                         </ul>
                     </div>
@@ -136,5 +146,7 @@
         </div>
     </div>
 @endsection
+
 @section('js')
+    {!! NoCaptcha::renderJs() !!}
 @endsection

@@ -23,6 +23,9 @@ class ContactController extends Controller
             'email' => 'required|email',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
             'subject' => 'nullable',
+            'g-recaptcha-response' => 'required|captcha'
+        ],[
+            "g-recaptcha-response.required" => "يجب التأكيد انك لست روبوت"
         ]);
 
         // dd($data);
