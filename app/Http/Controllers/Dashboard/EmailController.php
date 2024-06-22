@@ -32,7 +32,7 @@ class EmailController extends Controller
         ]);
 
         $emails = $request->emails;
-        // dd($emails);
+        // dd($data);
 
         foreach ($emails as $email) {
             Mail::to($email)->send(new MailClients($data));
