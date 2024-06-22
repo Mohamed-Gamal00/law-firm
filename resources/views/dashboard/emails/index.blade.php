@@ -12,6 +12,15 @@
                     <li class="breadcrumb-item"><a href="#">الايميلات</a></li>
                 </ol>
             </div>
+            <div class="col-md-4">
+                <div class="float-end d-none d-md-block">
+                    <div class="dropdown">
+                        <a class="btn btn-primary" href="{{ route('emails.create') }}" type="button">
+                            ارسال ايميل
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- /breadcrumb -->

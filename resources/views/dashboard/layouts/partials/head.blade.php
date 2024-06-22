@@ -14,6 +14,7 @@
 
 <link href="{{ asset('assets/libs/chartist/chartist.min.css') }}" rel="stylesheet">
 
+@yield('css')
 <!-- Bootstrap Css -->
 <link href="{{ asset('assets/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
 <!-- Icons Css -->

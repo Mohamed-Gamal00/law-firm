@@ -18,7 +18,8 @@
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
 <!--tinymce js-->
-<script src="{{ asset('assets/libs/tinymce/tinymce.min.js')}}"></script>
+<script src="{{ asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
 
 <!-- init js -->
-<script src="{{ asset('assets/js/pages/form-editor.init.js')}}"></script>
+<script src="{{ asset('assets/js/pages/form-editor.init.js') }}"></script>
+@yield('js')

@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('emails', [EmailController::class, 'index'])->name('emails.index');
         Route::delete('emails/{email}', [EmailController::class, 'destroy'])->name('emails.destroy');
+        Route::get('emails/create', [EmailController::class, 'create'])->name('emails.create');
+        Route::post('emails/send', [EmailController::class, 'send'])->name('emails.send');
 
         Route::get('all-booking', [BookingController::class, 'index'])->name('booking.index');
         Route::delete('all-booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
