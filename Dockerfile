@@ -18,17 +18,52 @@ RUN npm run build
 # =============================================================================
 # Stage 2: Composer — install PHP dependencies
 # =============================================================================
-FROM composer:2 AS composer-build
+# Use php:8.2-cli-alpine instead of composer:2 so that all required PHP
+# extensions are available when Composer runs post-install scripts (e.g.
+# package:discover) and builds the optimised autoloader.
+FROM php:8.2-cli-alpine AS composer-build
+
+# Install system libraries and PHP extensions that Laravel (and its packages)
+# require at autoload-dump / post-install-cmd time.
+RUN apk add --no-cache \
+        curl \
+        libpng-dev \
+        libjpeg-turbo-dev \
+        libwebp-dev \
+        freetype-dev \
+        libzip-dev \
+        oniguruma-dev \
+        icu-dev \
+        unzip \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
+    && docker-php-ext-install -j$(nproc) \
+        pdo \
+        pdo_mysql \
+        mbstring \
+        exif \
+        pcntl \
+        bcmath \
+        gd \
+        zip \
+        intl
+
+# Fetch the Composer binary from the official image
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-COPY composer.json composer.lock ./
+# Copy the full application source so that post-install scripts (e.g.
+# artisan package:discover) can resolve service providers correctly.
+COPY . .
+
 RUN composer install \
     --no-dev \
     --no-interaction \
     --no-progress \
-    --optimize-autoloader \
-    --ignore-platform-reqs
+    --optimize-autoloader
 
 # =============================================================================
 # Stage 3: Runtime — PHP-FPM + nginx
