@@ -143,6 +143,9 @@ server {
 }
 EOF
 
+# Create .env from .env.example so Laravel can boot before runtime secrets are injected
+RUN cp .env.example .env
+
 # Set up storage directories and permissions
 RUN mkdir -p \
         storage/framework/sessions \
@@ -150,28 +153,12 @@ RUN mkdir -p \
         storage/framework/cache \
         storage/logs \
         bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
+    && chown -R www-data:www-data . \
+    && chmod -R 775 storage bootstrap/cache \
+    && chmod 664 .env
 
-# Startup script: generate app key if missing, run migrations, then start services
-RUN cat > /usr/local/bin/start.sh <<'EOF'
-#!/bin/sh
-set -e
-
-# Generate application key if not set
-if [ -z "$APP_KEY" ]; then
-    php artisan key:generate --force
-fi
-
-# Cache config/routes for production performance
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
-# Start PHP-FPM in the background, then nginx in the foreground
-php-fpm -D
-exec nginx -g "daemon off;"
-EOF
+# Startup script: generate app key if missing, then start services
+RUN printf '#!/bin/sh\nset -e\n\n# Ensure .env exists (fallback safety net)\nif [ ! -f /var/www/html/.env ]; then\n    cp /var/www/html/.env.example /var/www/html/.env\nfi\n\n# Generate APP_KEY only when it is not already present in .env\nif ! grep -q "^APP_KEY=.\\+" /var/www/html/.env; then\n    php /var/www/html/artisan key:generate --force\nfi\n\n# Cache config/routes for production performance\nphp /var/www/html/artisan config:cache\nphp /var/www/html/artisan route:cache\nphp /var/www/html/artisan view:cache\n\n# Start PHP-FPM in the background, then nginx in the foreground\nphp-fpm -D\nexec nginx -g "daemon off;"\n' > /usr/local/bin/start.sh
 
 RUN chmod +x /usr/local/bin/start.sh
 
