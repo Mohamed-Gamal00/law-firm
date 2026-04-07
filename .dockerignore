@@ -1,0 +1,39 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Node
+node_modules
+
+# PHP vendor (installed in Docker)
+vendor
+
+# Laravel local environment
+.env
+.env.*
+!.env.example
+
+# Storage (runtime-generated)
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+storage/logs
+
+# Tests
+tests
+phpunit.xml
+
+# Dev tooling
+.editorconfig
+.phpunit.result.cache
+phpstan.neon
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+docker-compose*
+
+# OS artifacts
+.DS_Store
+Thumbs.db
