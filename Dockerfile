@@ -158,7 +158,7 @@ RUN mkdir -p \
     && chmod 664 .env
 
 # Startup script: generate app key if missing, then start services
-RUN printf '#!/bin/sh\nset -e\n\n# Ensure .env exists (fallback safety net)\nif [ ! -f /var/www/html/.env ]; then\n    cp /var/www/html/.env.example /var/www/html/.env\nfi\n\n# Generate APP_KEY only when it is not already present in .env\nif ! grep -q "^APP_KEY=.\\+" /var/www/html/.env; then\n    php /var/www/html/artisan key:generate --force\nfi\n\n# Cache config/routes for production performance\nphp /var/www/html/artisan config:cache\nphp /var/www/html/artisan route:cache\nphp /var/www/html/artisan view:cache\n\n# Start PHP-FPM in the background, then nginx in the foreground\nphp-fpm -D\nexec nginx -g "daemon off;"\n' > /usr/local/bin/start.sh
+RUN printf '#!/bin/sh\nset -e\n\n# Ensure .env exists (fallback safety net)\nif [ ! -f /var/www/html/.env ]; then\n    cp /var/www/html/.env.example /var/www/html/.env\nfi\n\n# Generate APP_KEY only when it is not already present in .env\nif ! grep -q "^APP_KEY=.\\+" /var/www/html/.env; then\n    php /var/www/html/artisan key:generate --force\nfi\n\n# Create the storage symlink so uploaded files are accessible via HTTP\nphp /var/www/html/artisan storage:link\n\n# Cache config/routes for production performance\nphp /var/www/html/artisan config:cache\nphp /var/www/html/artisan route:cache\nphp /var/www/html/artisan view:cache\n\n# Start PHP-FPM in the background, then nginx in the foreground\nphp-fpm -D\nexec nginx -g "daemon off;"\n' > /usr/local/bin/start.sh
 
 RUN chmod +x /usr/local/bin/start.sh
 
